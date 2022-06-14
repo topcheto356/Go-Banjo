@@ -1,8 +1,15 @@
 {
     "version": 3,
     "sourceRoot": "",
-    "sources": [],
+    "sources": [
+        "sass/abstracts/_mixins.scss",
+        "sass/base/_animations.scss",
+        "sass/base/_base.scss",
+        "sass/abstracts/_variables.scss",
+        "sass/base/_typography.scss",
+        "sass/base/_utilities.scss"
+    ],
     "names": [],
-    "mappings": "",
+    "mappings": "AAQA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAQA;AAAA;AAAA;AAAA;AAAA;AAAA;;AAAA;AAAA;AChBA;EACE;IACE;IACA;;EAGF;IACE;IACA;;EAGF;IACE;IACA;;;AAIJ;EACE;IACE;IACA;;EAGF;IACE;IACA;;EAGF;IACE;IACA;;;AAIJ;EACE;IACE;IACA;;EAGF;IACE;IACA;;EAGF;IACE;IACA;;;AC/CJ;AAAA;AAAA;EAGE;EACA;EACA;;;AAGF;EAEE;;AF8BM;EEhCR;IAMI;;;AFoBI;EE1BR;IAWI;;;AF2BI;EEtCR;IAeI;;;;AAIJ;EACE;EACA;;AFKM;EEPR;IAMI;;;;AAIJ;EACE,kBCrCc;EDsCd;;;AEvCF;EACI;EACA;AACA;EACA;EACA,ODQc;;;ACLlB;EACI,ODQU;ECNV;EACA;EAEA;EAEA;;AAEA;EACI;EACA;EACA;EACA;EAEA;EACA;EACA;AAOA;AAAA;AAAA;AAAA;;AJLA;EIVJ;IAWQ;IACA;;;AASR;EACI;EACA;EACA;EACA;EAEA;;AJjBA;EIWJ;IASQ;IACA;;;;AAKZ;EACI;EACA;EACA;EACA;EAKA;EACA;EACA;EACA;EAEA;EACA;;AJnCI;EIoBR;IAkBQ;;;AJ5CA;EI0BR;IAsBQ;;;AAGJ;EACI;EACA;;;AAIR;EACI,WDjEgB;ECkEhB;EACA;;;AAGJ;EACI,WDvEgB;;ACyEhB;EACI;;;AC/FR;EACI;;;AAGJ;EACI;;AL6BI;EK9BR;IAIQ;;;;AAIR;EACI;;ALqBI;EKtBR;IAIQ;;;;AAIR;EACI;;;AAGJ;EACI;;;AAGJ;EACI",
     "file": "style.css"
 }

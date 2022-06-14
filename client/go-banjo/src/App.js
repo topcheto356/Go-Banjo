@@ -1,5 +1,5 @@
 function App() {
-    return <div className='App'>A</div>;
+    return <h1 className='heading-secondary'>Heading Secondary</h1>;
 }
 
 export default App;
