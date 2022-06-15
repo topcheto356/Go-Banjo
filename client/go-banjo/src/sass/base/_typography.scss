@@ -76,11 +76,6 @@ body {
     @include respond(phone) {
         font-size: 2.5rem;
     }
-
-    &:hover {
-        transform: scale(1.1) skewY(-2deg) skewX(15deg);
-        text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.4);
-    }
 }
 
 .heading-tertiary {
