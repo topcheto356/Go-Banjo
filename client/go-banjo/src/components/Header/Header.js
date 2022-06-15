@@ -2,13 +2,15 @@ import React from 'react';
 
 const Header = () => {
     return (
-        <nav className='nav'>
-            <ul className='nav__links'>
-                <li className='nav__item'>Houses</li>
-                <li className='nav__item'>Create AD</li>
-                <li className='nav__item'></li>
-            </ul>
-        </nav>
+        <header className='header'>
+            <div className='header__text-box'>
+                <h1 className='header__main'>Leading House Broker</h1>
+                <h2 className='header__secondary'>Leading House Broker</h2>
+            </div>
+            <div className='header__button-wrapper'>
+                <button className='login-btn'>Browse</button>
+            </div>
+        </header>
     );
 };
 
