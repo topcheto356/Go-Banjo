@@ -1,5 +1,13 @@
+import { Fragment } from 'react';
+
+import Header from './components/Header/Header.js';
+
 function App() {
-    return <h1 className='heading-secondary'>Heading Secondary</h1>;
+    return (
+        <Fragment>
+            <Header></Header>
+        </Fragment>
+    );
 }
 
 export default App;
