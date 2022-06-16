@@ -224,6 +224,10 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+.nav__link {
+  text-decoration: none;
+  color: inherit;
+}
 .nav__logo {
   color: #fff;
 }
