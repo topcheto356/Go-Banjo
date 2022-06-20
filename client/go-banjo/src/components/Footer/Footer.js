@@ -1,4 +1,5 @@
-import React from 'react';import AboutUs from './AboutUs';
+import React from 'react';
+import AboutUs from './AboutUs';
 import FollowUsOn from './FollowUsOn';
 
 const Footer = () => {
@@ -13,7 +14,9 @@ const Footer = () => {
 				<div className="footer__main__section">Contact us</div>
 			</main>
 			<main className="footer__main">
-				<p className="footer__main__bottom">&copy; All rights reserved</p>
+				<p className="footer__main__bottom">
+					&copy; All rights reserved
+				</p>
 			</main>
 		</footer>
 	);

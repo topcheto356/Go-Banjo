@@ -1,4 +1,4 @@
-import React from 'react';import Icons from './Icons';
+import React from 'react';import Icons from '../Icons';
 
 const FollowUsOn = (props) => {
 	return (
