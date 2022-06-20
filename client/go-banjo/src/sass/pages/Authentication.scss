@@ -1,0 +1,16 @@
+.authentication {
+    position: relative;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    height: 50rem;
+    width: 100%;
+    padding: 2rem;
+
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+
+    animation: moveInBottom 500ms ease-in-out;
+}
