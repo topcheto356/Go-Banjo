@@ -1,58 +1,61 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { login } from '../../controllers/authController';
 const Login = () => {
-	const [enteredEmail, setEnteredEmail] = useState('');
-	const [enteredPassword, setEnteredPassword] = useState('');
+    const [enteredEmail, setEnteredEmail] = useState('');
+    const [enteredPassword, setEnteredPassword] = useState('');
 
-	const enteredEmailHandler = (event) => {
-		setEnteredEmail(event.target.value);
-	};
+    const enteredEmailHandler = (event) => {
+        setEnteredEmail(event.target.value);
+    };
 
-	const enteredPasswordHandler = (event) => {
-		setEnteredPassword(event.target.value);
-	};
+    const enteredPasswordHandler = (event) => {
+        setEnteredPassword(event.target.value);
+    };
 
-	const submitHandler = (event) => {
-		event.preventDefault();
+    const submitHandler = (event) => {
+        event.preventDefault();
 
-		login({ email: enteredEmail, password: enteredPassword });
-	};
+        login({ email: enteredEmail, password: enteredPassword });
+    };
 
-	return (
-		<form className="login" onSubmit={submitHandler}>
-			<div className="login__controls">
-				<div className="login__control">
-					<label>Email</label>
-					<input
-						type="text"
-						value={enteredEmail}
-						onChange={enteredEmailHandler}
-					/>
-				</div>
-				<div className="login__control">
-					<label>Password</label>
-					<input
-						type="text"
-						value={enteredPassword}
-						onChange={enteredPasswordHandler}
-					/>
-				</div>
-			</div>
-			<div>
-				<a href="">Forgotten Password</a>
-			</div>
-			<div>
-				<button type="submit" className="btn-white">
-					Login
-				</button>
-			</div>
-			<div>
-				<button type="button" className="btn-white">
-					Register
-				</button>
-			</div>
-		</form>
-	);
+    return (
+        <Fragment>
+            <form className='auth' onSubmit={submitHandler}>
+                <div className='auth__controls'>
+                    <div className='auth__control'>
+                        <label className='auth__label'>Email</label>
+                        <input
+                            className='auth__input'
+                            type='text'
+                            value={enteredEmail}
+                            onChange={enteredEmailHandler}
+                        />
+                    </div>
+                    <div className='auth__control'>
+                        <label className='auth__label'>Password</label>
+                        <input
+                            className='auth__input'
+                            type='text'
+                            value={enteredPassword}
+                            onChange={enteredPasswordHandler}
+                        />
+                    </div>
+                </div>
+                <div className='forgot-pass'>
+                    <Link to='#' className='nav__link'>
+                        Forgotten Password
+                    </Link>
+                </div>
+                <div className='auth__button-wrapper'>
+                    <button type='submit' className='btn-square'>
+                        Login
+                    </button>
+                </div>
+            </form>
+            <div className='img-container'></div>
+        </Fragment>
+    );
 };
 
 export default Login;
