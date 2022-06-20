@@ -5,7 +5,11 @@ import { Link } from 'react-router-dom';
 const Naviagtion = () => {
     return (
         <nav className='nav'>
-            <h1 className='nav__logo'>Go-Banjo</h1>
+            <h1 className='nav__logo'>
+                <Link to={'/'} className='nav__link'>
+                    Go-Banjo
+                </Link>
+            </h1>
             <ul className='nav__links'>
                 <li className='nav__item'>
                     <Link to={'/houses'} className='nav__link'>
@@ -17,7 +21,7 @@ const Naviagtion = () => {
                         Create AD
                     </Link>
                 </li>
-                <li className='nav__item login-btn'>
+                <li className='nav__item btn-white'>
                     <Link to={'/register'} className='nav__link'>
                         Register
                     </Link>
