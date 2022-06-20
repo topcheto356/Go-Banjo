@@ -1,10 +1,12 @@
 import React from 'react';
 import Login from './Login';
+import Register from './Register';
 
 const Authentication = () => {
     return (
-        <section className='authentication'>
-            <Login />;
+        <section>
+            <Login />
+            <Register />
         </section>
     );
 };
