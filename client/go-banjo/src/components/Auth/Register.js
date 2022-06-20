@@ -1,4 +1,5 @@
-import React, { useState } from 'react';import { register } from '../../controllers/authController';
+import React, { useState } from 'react';
+import { register } from '../../controllers/authController';
 const Register = () => {
 	const [enteredFirstName, setEnteredFirstName] = useState('');
 	const [enteredLastName, setEnteredLastName] = useState('');
@@ -9,14 +10,16 @@ const Register = () => {
 	const enteredFirstNameHandler = (event) => {
 		const firstName = event.target.value;
 
-		if (/[^a-zA-Z]+/g.test(firstName) || firstName.lenght) {
+		if (/[^a-zA-Z]+/g.test(firstName) || firstName.length > 30) {
+			console.log('Wrong', firstName);
 		}
 		setEnteredFirstName(firstName);
 	};
 	const enteredLastNameHandler = (event) => {
 		const lastName = event.target.value;
 
-		if (/[^a-zA-Z]+/g.test(lastName) || lastName.lenght) {
+		if (/[^a-zA-Z]+/g.test(lastName) || lastName.length > 30) {
+			console.log('Wrong', lastName);
 		}
 
 		setEnteredLastName(lastName);
@@ -28,6 +31,7 @@ const Register = () => {
 		const password = event.target.value;
 
 		if (password.lenght < 8) {
+			console.log('Wrong', password);
 		}
 		setEnteredPassword(password);
 	};
@@ -35,6 +39,7 @@ const Register = () => {
 		const confirmPassword = event.target.value;
 
 		if (enteredPassword !== confirmPassword) {
+			console.log('Wrong', confirmPassword);
 		}
 		setEnteredConfirmPassword(confirmPassword);
 	};
