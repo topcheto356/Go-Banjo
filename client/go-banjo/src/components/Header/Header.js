@@ -8,7 +8,7 @@ const Header = () => {
                 <h2 className='header__secondary'>Leading House Broker</h2>
             </div>
             <div className='header__button-wrapper'>
-                <button className='login-btn'>Browse</button>
+                <button className='btn-white'>Browse</button>
             </div>
         </header>
     );
