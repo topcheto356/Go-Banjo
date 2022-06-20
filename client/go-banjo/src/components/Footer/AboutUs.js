@@ -1,4 +1,5 @@
-import React from 'react';import info from './Footer';
+import React from 'react';
+import info from './Footer';
 
 const AboutUs = (props) => {
 	return (
