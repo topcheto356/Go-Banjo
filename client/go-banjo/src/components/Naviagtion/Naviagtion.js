@@ -22,8 +22,8 @@ const Naviagtion = () => {
                     </Link>
                 </li>
                 <li className='nav__item btn-white'>
-                    <Link to={'/register'} className='nav__link'>
-                        Register
+                    <Link to={'/auth'} className='nav__link'>
+                        SingUp
                     </Link>
                 </li>
             </ul>
