@@ -1,8 +1,13 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Link } from 'react-router-dom';
+import { logout } from '../../slices/authSlice.js';
 
 const Naviagtion = () => {
+    const user = useSelector((state) => state.auth.user);
+    const dispatch = useDispatch();
+
     return (
         <nav className='nav'>
             <h1 className='nav__logo'>
@@ -22,9 +27,13 @@ const Naviagtion = () => {
                     </Link>
                 </li>
                 <li className='nav__item btn-white'>
-                    <Link to={'/auth'} className='nav__link'>
-                        SingUp
-                    </Link>
+                    {user ? (
+                        <div onClick={() => dispatch(logout())}>Logout</div>
+                    ) : (
+                        <Link to={'/auth'} className='nav__link'>
+                            Signup
+                        </Link>
+                    )}
                 </li>
             </ul>
         </nav>
