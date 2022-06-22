@@ -1,4 +1,5 @@
-export const validateEnteredName = (event) => {	const name = event.target.value;
+export const validateEnteredName = (event) => {
+	const name = event.target.value;
 	let obj = { style: 'valid', name };
 
 	if (/[^a-zA-Z]+/g.test(name) || name.length > 30) {
@@ -34,7 +35,7 @@ export const validateEmail = (event) => {
 	const email = event.target.value;
 	let obj = { style: 'valid', email };
 
-	if (email) {
+	if (!email) {
 		obj = { style: 'invalid', email };
 	}
 
