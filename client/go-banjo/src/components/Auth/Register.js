@@ -3,6 +3,8 @@ import { register } from '../../controllers/authController.js';
 import {
 	validateEnteredName,
 	validateEnteredPassword,
+	validateEnteredConfirmPassword,
+	validateEmail,
 } from '../../controllers/validateData';
 const Register = () => {
 	let firstNameStyle,
@@ -32,7 +34,7 @@ const Register = () => {
 		setEnteredLastName(name);
 	};
 	const enteredEmailHandler = (event) => {
-		const { style, email } = validateEnteredName(event);
+		const { style, email } = validateEmail(event);
 
 		emailStyle = style;
 
@@ -46,7 +48,8 @@ const Register = () => {
 		setEnteredPassword(password);
 	};
 	const enteredConfirmPasswordHandler = (event, enteredPassword) => {
-		const { style, confirmPassword } = validateEnteredPassword(event);
+		const { style, confirmPassword } =
+			validateEnteredConfirmPassword(event);
 
 		confirmPasswordStyle = style;
 
