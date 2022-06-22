@@ -14,6 +14,7 @@ router.patch('/resetPassword/:token', authController.resetPassword);
 //middleware
 //it will protect all the routes after this point
 router.use(authController.protect);
+router.get('/getUser', authController.isLoggedIn);
 
 router.patch('/updateMyPassword', authController.updatePassword);
 
@@ -23,17 +24,17 @@ router.get('/me', userController.getMe, userController.getUser);
 
 router.delete('/deleteMe', userController.deleteMe);
 
-router.use(authController.restrictTo('admin'));
+// router.use(authController.restrictTo('admin'));
 
 router
-  .route('/')
-  .get(userController.getAllUsers)
-  .post(userController.createUser);
+    .route('/')
+    .get(userController.getAllUsers)
+    .post(userController.createUser);
 
 router
-  .route('/:id')
-  .get(userController.getUser)
-  .patch(userController.updateUser)
-  .delete(userController.deleteUser);
+    .route('/:id')
+    .get(userController.getUser)
+    .patch(userController.updateUser)
+    .delete(userController.deleteUser);
 
 module.exports = router;
