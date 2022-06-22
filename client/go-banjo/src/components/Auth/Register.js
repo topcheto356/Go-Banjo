@@ -1,120 +1,123 @@
 import React, { Fragment, useState } from 'react';
 import { register } from '../../controllers/authController.js';
+import {
+	validateEnteredName,
+	validateEnteredPassword,
+} from '../../controllers/validateData';
 const Register = () => {
-    const [enteredFirstName, setEnteredFirstName] = useState('');
-    const [enteredLastName, setEnteredLastName] = useState('');
-    const [enteredEmail, setEnteredEmail] = useState('');
-    const [enteredPassword, setEnteredPassword] = useState('');
-    const [enteredConfirmPassword, setEnteredConfirmPassword] = useState('');
+	const [enteredFirstName, setEnteredFirstName] = useState('');
+	const [enteredLastName, setEnteredLastName] = useState('');
+	const [enteredEmail, setEnteredEmail] = useState('');
+	const [enteredPassword, setEnteredPassword] = useState('');
+	const [enteredConfirmPassword, setEnteredConfirmPassword] = useState('');
 
-    const enteredFirstNameHandler = (event) => {
-        const firstName = event.target.value;
+	const enteredFirstNameHandler = (event) => {
+		const { style, name } = validateEnteredName(event);
 
-        if (/[^a-zA-Z]+/g.test(firstName) || firstName.length > 30) {
-            console.log('Wrong', firstName);
-        }
-        setEnteredFirstName(firstName);
-    };
-    const enteredLastNameHandler = (event) => {
-        const lastName = event.target.value;
+		const firstNameStyle = style;
 
-        if (/[^a-zA-Z]+/g.test(lastName) || lastName.length > 30) {
-            console.log('Wrong', lastName);
-        }
+		setEnteredFirstName(name);
+	};
+	const enteredLastNameHandler = (event) => {
+		const { style, name } = validateEnteredName(event);
 
-        setEnteredLastName(lastName);
-    };
-    const enteredEmailHandler = (event) => {
-        setEnteredEmail(event.target.value);
-    };
-    const enteredPasswordHandler = (event) => {
-        const password = event.target.value;
+		const lastNameStyle = style;
 
-        if (password.lenght < 8) {
-            console.log('Wrong', password);
-        }
-        setEnteredPassword(password);
-    };
-    const enteredConfirmPasswordHandler = (event) => {
-        const confirmPassword = event.target.value;
+		setEnteredLastName(name);
+	};
+	const enteredEmailHandler = (event) => {
+		const { style, email } = validateEnteredName(event);
 
-        if (enteredPassword !== confirmPassword) {
-            console.log('Wrong', confirmPassword);
-        }
-        setEnteredConfirmPassword(confirmPassword);
-    };
+		const emailStyle = style;
 
-    const submitHandler = (event) => {
-        event.preventDefault();
+		setEnteredEmail(email);
+	};
+	const enteredPasswordHandler = (event) => {
+		const { style, password } = validateEnteredPassword(event);
 
-        register({
-            firstName: enteredFirstName,
-            lastName: enteredLastName,
-            email: enteredEmail,
-            password: enteredPassword,
-            passwordConfirm: enteredConfirmPassword,
-        });
-    };
+		const passwordStyle = style;
 
-    return (
-        <Fragment>
-            <form className='auth' onSubmit={submitHandler}>
-                <div className='auth__controls'>
-                    <div className='auth__control'>
-                        <label className='auth__label'>First Name</label>
-                        <input
-                            className='auth__input'
-                            type='text'
-                            value={enteredFirstName}
-                            onChange={enteredFirstNameHandler}
-                        />
-                    </div>
-                    <div className='auth__control'>
-                        <label className='auth__label'>Last Name</label>
-                        <input
-                            className='auth__input'
-                            type='text'
-                            value={enteredLastName}
-                            onChange={enteredLastNameHandler}
-                        />
-                    </div>
-                    <div className='auth__control'>
-                        <label className='auth__label'>Email</label>
-                        <input
-                            className='auth__input'
-                            type='text'
-                            value={enteredEmail}
-                            onChange={enteredEmailHandler}
-                        />
-                    </div>
-                    <div className='auth__control'>
-                        <label className='auth__label'>Password</label>
-                        <input
-                            className='auth__input'
-                            type='text'
-                            value={enteredPassword}
-                            onChange={enteredPasswordHandler}
-                        />
-                    </div>
-                    <div className='auth__control'>
-                        <label className='auth__label'>Confirm Password</label>
-                        <input
-                            className='auth__input'
-                            type='text'
-                            value={enteredConfirmPassword}
-                            onChange={enteredConfirmPasswordHandler}
-                        />
-                    </div>
-                </div>
-                <div>
-                    <button type='submit' className='btn-square'>
-                        Register
-                    </button>
-                </div>
-            </form>
-            <div className='img-container'></div>
-        </Fragment>
-    );
+		setEnteredPassword(password);
+	};
+	const enteredConfirmPasswordHandler = (event, enteredPassword) => {
+		const { style, confirmPassword } = validateEnteredPassword(event);
+
+		const confirmPasswordStyle = style;
+
+		setEnteredConfirmPassword(confirmPassword);
+	};
+
+	const submitHandler = (event) => {
+		event.preventDefault();
+
+		register({
+			firstName: enteredFirstName,
+			lastName: enteredLastName,
+			email: enteredEmail,
+			password: enteredPassword,
+			passwordConfirm: enteredConfirmPassword,
+		});
+	};
+
+	return (
+		<Fragment>
+			<form className="auth" onSubmit={submitHandler}>
+				<div className="auth__controls">
+					<div className="auth__control">
+						<label className="auth__label">First Name</label>
+						<input
+							className="auth__input"
+							type="text"
+							value={enteredFirstName}
+							onChange={enteredFirstNameHandler}
+						/>
+					</div>
+					<div className="auth__control">
+						<label className="auth__label">Last Name</label>
+						<input
+							className="auth__input"
+							type="text"
+							value={enteredLastName}
+							onChange={enteredLastNameHandler}
+						/>
+					</div>
+					<div className="auth__control">
+						<label className="auth__label">Email</label>
+						<input
+							className="auth__input"
+							type="text"
+							value={enteredEmail}
+							onChange={enteredEmailHandler}
+						/>
+					</div>
+					<div className="auth__control">
+						<label className="auth__label">Password</label>
+						<input
+							className="auth__input"
+							type="text"
+							value={enteredPassword}
+							onChange={enteredPasswordHandler}
+						/>
+					</div>
+					<div className="auth__control">
+						<label className="auth__label">Confirm Password</label>
+						<input
+							className="auth__input"
+							type="text"
+							value={enteredConfirmPassword}
+							onChange={enteredConfirmPasswordHandler}
+						/>
+					</div>
+				</div>
+				<div>
+					<button type="submit" className="btn-square">
+						Register
+					</button>
+				</div>
+			</form>
+			<div className="img-container"></div>
+		</Fragment>
+	);
 };
 
 export default Register;
