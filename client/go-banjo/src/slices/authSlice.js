@@ -10,7 +10,6 @@ export const counterSlice = createSlice({
     reducers: {
         authSuccess: (state, { type, payload }) => {
             const { status, token, data } = payload;
-            console.log(status, data);
 
             localStorage.setItem('token', token);
             return {

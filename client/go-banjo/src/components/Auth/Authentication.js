@@ -7,7 +7,6 @@ const Authentication = () => {
     const [register, setRegister] = useState(false);
 
     const switchHandler = (e) => {
-        console.log(register);
         setRegister(!register);
     };
 

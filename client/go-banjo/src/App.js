@@ -5,7 +5,15 @@ import Footer from './components/Footer/Footer.js';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Authentication from './components/Auth/Authentication.js';
+import { useEffect } from 'react';
+import { loadUser } from './controllers/authController.js';
 function App() {
+    useEffect(() => {
+        if (localStorage.getItem('token')) {
+            loadUser(localStorage.getItem('token'));
+        }
+    }, []);
+
     return (
         <Fragment>
             <Router>
