@@ -28,8 +28,18 @@
 }
 
 .icon {
-    width: 2rem;
-    height: 2rem;
-    color: white;
+    width: 5rem;
+    height: 5rem;
+
+    background-image: linear-gradient(
+        to right,
+        $color-primary-light,
+        $color-primary-dark
+    );
+
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+
     overflow: visible;
 }
