@@ -1,7 +1,7 @@
 import axios from 'axios';
 import catchAsync from '../utils/catchAsync';
 import store from '../store.js';
-import { addHouse, loadAllHouses } from '../slices/houseSlice.js';
+import { addHouse, loadAllHouses, removeHouse } from '../slices/houseSlice.js';
 
 export const createHouse = async () => {
     const config = {
@@ -32,6 +32,18 @@ export const createHouse = async () => {
         console.log(res);
 
         store.dispatch(addHouse(res.data));
+    } catch (err) {
+        console.log(3);
+    }
+};
+
+export const getAllHouses = async () => {
+    try {
+        const res = await axios.get('http://localhost:8000/api/houses');
+
+        console.log(res);
+
+        store.dispatch(loadAllHouses(res.data));
     } catch (err) {
         console.log(3);
     }
