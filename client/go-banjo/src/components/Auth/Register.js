@@ -1,13 +1,9 @@
 import React, { Fragment } from 'react';
-import { register } from '../../controllers/authController.js';
-
 import Input from '../UI/Input';
-import {
-	validateEnteredName,
-	validateEnteredPassword,
-	validateEnteredConfirmPassword,
-	validateEnteredEmail,
-} from '../../controllers/validateData';
+
+import { register } from '../../controllers/authController.js';
+import userFields from '../../controllers/inputFields/userFields';
+
 const Register = () => {
 	const user = {};
 
@@ -23,52 +19,39 @@ const Register = () => {
 		<Fragment>
 			<form className='auth' onSubmit={submitHandler}>
 				<div className='auth__controls'>
-					<Input
-						validate={validateEnteredName}
-						name='First Name'
-						className='auth'
-						type='text'
-						errMessage='First name must be less than 30 characters and only letters'
-						onSaveData={addData}
-						field={'firstName'}
-					/>
-					<Input
-						validate={validateEnteredName}
-						name='Last Name'
-						className='auth'
-						type='text'
-						errMessage='Last name must be less than 30 characters and only letters'
-						onSaveData={addData}
-						field={'lastName'}
-					/>
-					<Input
-						validate={validateEnteredEmail}
-						name='Email'
-						className='auth'
-						type='text'
-						errMessage='Enter valid email'
-						onSaveData={addData}
-						field={'email'}
-					/>
-					<Input
-						validate={validateEnteredPassword}
-						name={'Password'}
-						className='auth'
-						type='text'
-						errMessage='A password must be minimum 8 characters'
-						onSaveData={addData}
-						field={'password'}
-					/>
-					<Input
-						validate={validateEnteredConfirmPassword}
-						name={'Confirm Password'}
-						className='auth'
-						type='text'
-						errMessage='Passwords are NOT the same'
-						onSaveData={addData}
-						enteredPassword={user}
-						field={'passwordConfirm'}
-					/>
+					{userFields.map((userField) => {
+						/*
+							Get this
+							{
+								name: Label name,
+								type: input type,
+								validate: Validator,
+								errMessage: Error message,
+								field: field name,
+							}
+
+							Add this 
+							{
+								className: 'create-house',
+								onSaveData: addData
+							}
+						*/
+						userField['className'] = 'auth';
+						userField['onSaveData'] = addData;
+
+						return (
+							<Input
+								key={userField.field}
+								validate={userField.validate}
+								name={userField.name}
+								className={userField.className}
+								type={userField.type}
+								errMessage={userField.errMessage}
+								onSaveData={userField.onSaveData}
+								field={userField.field}
+							/>
+						);
+					})}
 				</div>
 				<div>
 					<button type='submit' className='btn-square'>
