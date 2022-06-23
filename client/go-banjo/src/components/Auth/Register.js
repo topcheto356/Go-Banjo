@@ -36,7 +36,7 @@ const Register = () => {
 								onSaveData: addData
 							}
 						*/
-						userField['className'] = 'create-house';
+						userField['className'] = 'auth';
 						userField['onSaveData'] = addData;
 
 						return (
