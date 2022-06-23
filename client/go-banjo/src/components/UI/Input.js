@@ -26,9 +26,7 @@ const Input = (props) => {
 	return (
 		<Fragment>
 			<div className={`${props.className}__control`}>
-				<label className={`${props.className}__label`}>
-					{props.name}
-				</label>
+				<label className={`${props.className}__label`}>{props.name}</label>
 				<input
 					className={`${props.className}__input ${style}`}
 					type={props.type}
@@ -36,9 +34,7 @@ const Input = (props) => {
 					onChange={enteredDataHandler}
 				/>
 				{style === 'invalid' ? (
-					<p className={`${props.className}__message`}>
-						{props.errMessage}
-					</p>
+					<p className={`${props.className}__message`}>{props.errMessage}</p>
 				) : (
 					''
 				)}
