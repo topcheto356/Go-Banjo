@@ -1,106 +1,106 @@
-import React, { Fragment, useState } from 'react';
-import Icon from '../UI/Icon';
-import {
-	validateEnteredName,
-	validateEnteredEmail,
-} from '../../controllers/validateData';
+// import React, { Fragment, useState } from 'react';
+// import Icon from '../UI/Icon';
+// import {
+// 	validateUserName,
+// 	validateEmail,
+// } from '../../controllers/VatidateData/validateUser';
 
-const Account = () => {
-	const user = 'UserInfo';
+// const Account = () => {
+// 	const user = 'UserInfo';
 
-	let firstNameStyle, lastNameStyle, emailStyle;
+// 	let firstNameStyle, lastNameStyle, emailStyle;
 
-	const [enteredFirstName, setEnteredFirstName] = useState('');
-	const [enteredLastName, setEnteredLastName] = useState('');
-	const [enteredEmail, setEnteredEmail] = useState('');
+// 	const [enteredFirstName, setEnteredFirstName] = useState('');
+// 	const [enteredLastName, setEnteredLastName] = useState('');
+// 	const [enteredEmail, setEnteredEmail] = useState('');
 
-	const [update, setUpdate] = useState(true);
-	const switchHandler = (e) => {
-		setUpdate(!update);
-	};
+// 	const [update, setUpdate] = useState(true);
+// 	const switchHandler = (e) => {
+// 		setUpdate(!update);
+// 	};
 
-	const enteredFirstNameHandler = (event) => {
-		const { style, name } = validateEnteredName(event);
+// 	const enteredFirstNameHandler = (event) => {
+// 		const { style, name } = validateUserName(event);
 
-		firstNameStyle = style;
+// 		firstNameStyle = style;
 
-		setEnteredFirstName(name);
-	};
+// 		setEnteredFirstName(name);
+// 	};
 
-	const enteredLastNameHandler = (event) => {
-		const { style, name } = validateEnteredName(event);
+// 	const enteredLastNameHandler = (event) => {
+// 		const { style, name } = validateUserName(event);
 
-		lastNameStyle = style;
+// 		lastNameStyle = style;
 
-		setEnteredLastName(name);
-	};
+// 		setEnteredLastName(name);
+// 	};
 
-	const enteredEmailHandler = (event) => {
-		const { style, email } = validateEnteredEmail(event);
+// 	const enteredEmailHandler = (event) => {
+// 		const { style, email } = validateEmail(event);
 
-		emailStyle = style;
+// 		emailStyle = style;
 
-		setEnteredEmail(email);
-	};
+// 		setEnteredEmail(email);
+// 	};
 
-	const submitHandler = (event) => {
-		event.preventDefault();
-	};
+// 	const submitHandler = (event) => {
+// 		event.preventDefault();
+// 	};
 
-	return (
-		<Fragment>
-			<section className='account-section'>
-				<img alt='account' />
-				<Icon name='camera' color='black' size={100} />
-			</section>
-			<section className='account-section'>
-				<form className='account-form'>
-					<div className='account-controls'>
-						<div className='account-control'>
-							<label>First Name</label>
-							<p className='account__paragraph'>{user.firstName}</p>
-							<input
-								className={`auth__input ${firstNameStyle}`}
-								type='text'
-								value={enteredFirstName}
-								onChange={enteredFirstNameHandler}
-							/>
-						</div>
+// 	return (
+// 		<Fragment>
+// 			<section className='account-section'>
+// 				<img alt='account' />
+// 				<Icon name='camera' color='black' size={100} />
+// 			</section>
+// 			<section className='account-section'>
+// 				<form className='account-form'>
+// 					<div className='account-controls'>
+// 						<div className='account-control'>
+// 							<label>First Name</label>
+// 							<p className='account__paragraph'>{user.firstName}</p>
+// 							<input
+// 								className={`auth__input ${firstNameStyle}`}
+// 								type='text'
+// 								value={enteredFirstName}
+// 								onChange={enteredFirstNameHandler}
+// 							/>
+// 						</div>
 
-						<div className='account-control'>
-							<label>Last Name</label>
-							<p className='account__paragraph'>{user.firstName}</p>
-							<input
-								className={`auth__input ${lastNameStyle}`}
-								type='text'
-								value={enteredLastName}
-								onChange={enteredLastNameHandler}
-							/>
-						</div>
-						<div className='account-control'>
-							<label>Email</label>
-							<p className='account__paragraph'>{user.firstName}</p>
-							<input
-								className={`auth__input ${emailStyle}`}
-								type='text'
-								value={enteredEmail}
-								onChange={enteredEmailHandler}
-							/>
-						</div>
-					</div>
-					<div className='button-wrapper'>
-						<button
-							className='btn-white auth-btn-position'
-							onClick={switchHandler}
-						>
-							{update ? 'Update information' : 'Confirm the update'}
-						</button>
-					</div>
-				</form>
-			</section>
-			<div className='img-container'></div>
-		</Fragment>
-	);
-};
+// 						<div className='account-control'>
+// 							<label>Last Name</label>
+// 							<p className='account__paragraph'>{user.firstName}</p>
+// 							<input
+// 								className={`auth__input ${lastNameStyle}`}
+// 								type='text'
+// 								value={enteredLastName}
+// 								onChange={enteredLastNameHandler}
+// 							/>
+// 						</div>
+// 						<div className='account-control'>
+// 							<label>Email</label>
+// 							<p className='account__paragraph'>{user.firstName}</p>
+// 							<input
+// 								className={`auth__input ${emailStyle}`}
+// 								type='text'
+// 								value={enteredEmail}
+// 								onChange={enteredEmailHandler}
+// 							/>
+// 						</div>
+// 					</div>
+// 					<div className='button-wrapper'>
+// 						<button
+// 							className='btn-white auth-btn-position'
+// 							onClick={switchHandler}
+// 						>
+// 							{update ? 'Update information' : 'Confirm the update'}
+// 						</button>
+// 					</div>
+// 				</form>
+// 			</section>
+// 			<div className='img-container'></div>
+// 		</Fragment>
+// 	);
+// };
 
-export default Account;
+// export default Account;
