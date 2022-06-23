@@ -1,4 +1,5 @@
-const express = require('express');const authController = require('../controllers/authController');
+const express = require('express');
+const authController = require('../controllers/authController');
 const houseController = require('../controllers/houseController');
 const reviewRouter = require('./reviewRouter');
 
