@@ -162,6 +162,9 @@ body {
     font-size: 2.5rem;
   }
 }
+.heading-secondary-small {
+  font-size: 2rem;
+}
 
 .heading-tertiary {
   font-size: 1.6rem;
@@ -174,6 +177,10 @@ body {
 }
 .paragraph:not(:last-child) {
   margin-bottom: 3rem;
+}
+
+.small {
+  font-size: 2.5rem;
 }
 
 .u-center-text {
@@ -302,9 +309,12 @@ body {
 }
 
 .icon {
-  width: 2rem;
-  height: 2rem;
-  color: white;
+  width: 5rem;
+  height: 5rem;
+  background-image: linear-gradient(to right, #035c96, #03204c);
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
   overflow: visible;
 }
 
@@ -446,6 +456,104 @@ body {
   justify-content: center;
   align-items: center;
   width: 40%;
+}
+
+.about {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 50rem;
+  width: 100%;
+  padding: 2rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  animation: moveInBottom 300ms ease-in-out;
+}
+.about__heading {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.about__container {
+  width: 100%;
+  display: flex;
+}
+.about__info {
+  width: 100%;
+  min-height: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.about__photos {
+  width: 100%;
+  min-height: 30rem;
+  position: relative;
+}
+.about__photos img {
+  width: 40%;
+  transition: all 300ms ease-in-out;
+}
+.about__photos img:hover {
+  z-index: 1;
+  transform: scale(1.2);
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.5);
+  outline: 5px solid #04396d;
+}
+.about__photos-first {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+}
+.about__photos-second {
+  position: absolute;
+  top: 40%;
+  left: 30%;
+}
+.about__photos-third {
+  position: absolute;
+  top: 15%;
+  left: 10%;
+}
+
+.features {
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 80rem;
+  width: 100%;
+  padding: 2rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  gap: 1rem;
+  background-image: linear-gradient(to right, rgba(3, 92, 150, 0.8), rgba(4, 57, 109, 0.8)), url("./img/thumb-1920-435117.jpg");
+  clip-path: polygon(0 20%, 100% 0, 100% 80%, 0 100%);
+  animation: moveInBottom 300ms ease-in-out;
+}
+
+.feature {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.5);
+  border-radius: 0.4rem;
+  width: 15%;
+  height: 30rem;
+  padding: 1rem;
+  transition: all 300ms ease-in-out;
+}
+.feature__text-container {
+  text-align: center;
+}
+.feature:hover {
+  transform: translateY(-1.2rem);
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
 }
 
 .btn-white {
