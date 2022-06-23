@@ -20,9 +20,9 @@ function App() {
 			<Router>
 				<Naviagtion></Naviagtion>
 				<Switch>
-					<Route exact path="/" component={Header} />
-					<Route exact path="/auth" component={Authentication} />
-					<Route exact path="/me" component={Account} />
+					<Route exact path='/' component={Header} />
+					<Route exact path='/auth' component={Authentication} />
+					<Route exact path='/me' component={Account} />
 				</Switch>
 				{/* <Footer></Footer> */}
 			</Router>
