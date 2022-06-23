@@ -36,6 +36,6 @@ export const houseSlice = createSlice({
     },
 });
 
-export const { addHouse, loadAllHouses } = houseSlice.actions;
+export const { addHouse, loadAllHouses, removeHouse } = houseSlice.actions;
 
 export default houseSlice.reducer;

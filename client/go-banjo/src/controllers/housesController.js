@@ -49,3 +49,17 @@ export const getAllHouses = async () => {
     }
 };
 
+export const deleteHouse = async (id) => {
+    try {
+        console.log(id);
+        const res = await axios.delete(
+            `http://localhost:8000/api/houses/${id}`
+        );
+
+        console.log(res);
+
+        store.dispatch(removeHouse(id));
+    } catch (err) {
+        console.log(3);
+    }
+};
