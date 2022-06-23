@@ -35,8 +35,7 @@ export const register = async (registerData) => {
 		},
 	};
 
-	const body = JSON.stringify(registerData.user);
-	console.log(body);
+	const body = JSON.stringify(registerData);
 	try {
 		const res = await axios.post(
 			'http://localhost:8000/api/users/signup',

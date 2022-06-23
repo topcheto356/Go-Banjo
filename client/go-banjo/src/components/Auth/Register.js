@@ -16,69 +16,67 @@ const Register = () => {
 	};
 	const submitHandler = (event) => {
 		event.preventDefault();
-		register({
-			user,
-		});
+		register(user);
 	};
 
 	return (
 		<Fragment>
-			<form className="auth" onSubmit={submitHandler}>
-				<div className="auth__controls">
+			<form className='auth' onSubmit={submitHandler}>
+				<div className='auth__controls'>
 					<Input
 						validate={validateEnteredName}
-						name="First Name"
-						className="auth"
-						type="text"
-						errMessage="First name must be less than 30 characters and only letters"
+						name='First Name'
+						className='auth'
+						type='text'
+						errMessage='First name must be less than 30 characters and only letters'
 						onSaveData={addData}
 						field={'firstName'}
 					/>
 					<Input
 						validate={validateEnteredName}
-						name="Last Name"
-						className="auth"
-						type="text"
-						errMessage="Last name must be less than 30 characters and only letters"
+						name='Last Name'
+						className='auth'
+						type='text'
+						errMessage='Last name must be less than 30 characters and only letters'
 						onSaveData={addData}
 						field={'lastName'}
 					/>
 					<Input
 						validate={validateEnteredEmail}
-						name="Email"
-						className="auth"
-						type="text"
-						errMessage="Enter valid email"
+						name='Email'
+						className='auth'
+						type='text'
+						errMessage='Enter valid email'
 						onSaveData={addData}
 						field={'email'}
 					/>
 					<Input
 						validate={validateEnteredPassword}
 						name={'Password'}
-						className="auth"
-						type="text"
-						errMessage="A password must be minimum 8 characters"
+						className='auth'
+						type='text'
+						errMessage='A password must be minimum 8 characters'
 						onSaveData={addData}
 						field={'password'}
 					/>
 					<Input
 						validate={validateEnteredConfirmPassword}
 						name={'Confirm Password'}
-						className="auth"
-						type="text"
-						errMessage="Passwords are NOT the same"
+						className='auth'
+						type='text'
+						errMessage='Passwords are NOT the same'
 						onSaveData={addData}
 						enteredPassword={user}
 						field={'passwordConfirm'}
 					/>
 				</div>
 				<div>
-					<button type="submit" className="btn-square">
+					<button type='submit' className='btn-square'>
 						Register
 					</button>
 				</div>
 			</form>
-			<div className="img-container"></div>
+			<div className='img-container'></div>
 		</Fragment>
 	);
 };
