@@ -1,5 +1,4 @@
 const express = require('express');
-
 const authController = require('../controllers/authController');
 const houseController = require('../controllers/houseController');
 const reviewRouter = require('./reviewRouter');
@@ -14,7 +13,7 @@ router
 
 router.route('/').get(houseController.getAllHouses).post(
 	authController.protect,
-	authController.restrictTo('admin', 'owner'),
+	// authController.restrictTo('admin', 'owner'),
 	houseController.createHouse
 );
 
@@ -23,12 +22,12 @@ router
 	.get(houseController.getHouse)
 	.delete(
 		authController.protect,
-		authController.restrictTo('admin', 'owner'),
+		// authController.restrictTo('admin', 'owner'),
 		houseController.deleteHouse
 	)
 	.patch(
 		authController.protect,
-		authController.restrictTo('admin', 'owner'),
+		// authController.restrictTo('admin', 'owner'),
 		houseController.updateHouse
 	);
 

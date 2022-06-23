@@ -9,14 +9,11 @@ const router = express.Router({ mergeParams: true });
 //only authenticated users can acce	ss to reviews
 router.use(authController.protect);
 
-router
-	.route('/')
-	.get(reviewController.getAllReviews)
-	.post(
-		authController.restrictTo('user'),
-		reviewController.setHouseUserIds,
-		reviewController.createReview
-	);
+router.route('/').get(reviewController.getAllReviews).post(
+	// authController.restrictTo('user'),
+	reviewController.setHouseUserIds,
+	reviewController.createReview
+);
 
 router.route('/:id').get(reviewController.getReview);
 // .patch(

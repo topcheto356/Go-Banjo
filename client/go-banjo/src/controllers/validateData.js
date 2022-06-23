@@ -1,9 +1,20 @@
 export const validateEnteredName = (event) => {
 	const name = event.target.value;
-	let obj = { style: 'valid', name };
+	let obj = { style: 'valid', data: name };
 
 	if (/[^a-zA-Z]+/g.test(name) || name.length > 30) {
-		obj = { style: 'invalid', name };
+		obj = { style: 'invalid', data: name };
+	}
+
+	return obj;
+};
+
+export const validateEnteredEmail = (event) => {
+	const email = event.target.value;
+	let obj = { style: 'valid', data: email };
+
+	if (!email) {
+		obj = { style: 'invalid', data: email };
 	}
 
 	return obj;
@@ -11,10 +22,10 @@ export const validateEnteredName = (event) => {
 
 export const validateEnteredPassword = (event) => {
 	const password = event.target.value;
-	let obj = { style: 'valid', password };
+	let obj = { style: 'valid', data: password };
 
-	if (password.lenght < 8) {
-		obj = { style: 'invalid', password };
+	if (password.length < 8) {
+		obj = { style: 'invalid', data: password };
 	}
 
 	return obj;
@@ -22,21 +33,10 @@ export const validateEnteredPassword = (event) => {
 
 export const validateEnteredConfirmPassword = (event, enteredPassword) => {
 	const confirmPassword = event.target.value;
-	let obj = { style: 'valid', confirmPassword };
+	let obj = { style: 'valid', data: confirmPassword };
 
 	if (enteredPassword !== confirmPassword) {
-		obj = { style: 'invalid', confirmPassword };
-	}
-
-	return obj;
-};
-
-export const validateEmail = (event) => {
-	const email = event.target.value;
-	let obj = { style: 'valid', email };
-
-	if (!email) {
-		obj = { style: 'invalid', email };
+		obj = { style: 'invalid', data: confirmPassword };
 	}
 
 	return obj;
