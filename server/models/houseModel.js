@@ -37,7 +37,7 @@ const houseSchema = new mongoose.Schema(
 			type: String,
 			trim: true,
 			required: [true, 'A house must have a summary'],
-			maxLength: [100, 'A house summary must be less than 250 characters'],
+			maxLength: [250, 'A house summary must be less than 250 characters'],
 		},
 		description: {
 			type: String,
