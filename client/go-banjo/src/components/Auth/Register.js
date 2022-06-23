@@ -1,70 +1,23 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment } from 'react';
 import { register } from '../../controllers/authController.js';
+
+import Input from '../UI/Input';
 import {
 	validateEnteredName,
 	validateEnteredPassword,
 	validateEnteredConfirmPassword,
-	validateEmail,
+	validateEnteredEmail,
 } from '../../controllers/validateData';
 const Register = () => {
-	let firstNameStyle,
-		lastNameStyle,
-		emailStyle,
-		passwordStyle,
-		confirmPasswordStyle;
+	const user = {};
 
-	const [enteredFirstName, setEnteredFirstName] = useState('');
-	const [enteredLastName, setEnteredLastName] = useState('');
-	const [enteredEmail, setEnteredEmail] = useState('');
-	const [enteredPassword, setEnteredPassword] = useState('');
-	const [enteredConfirmPassword, setEnteredConfirmPassword] = useState('');
-
-	const enteredFirstNameHandler = (event) => {
-		const { style, name } = validateEnteredName(event);
-
-		firstNameStyle = style;
-
-		setEnteredFirstName(name);
+	const addData = (data) => {
+		user[data.key] = data.value;
 	};
-	const enteredLastNameHandler = (event) => {
-		const { style, name } = validateEnteredName(event);
-
-		lastNameStyle = style;
-
-		setEnteredLastName(name);
-	};
-	const enteredEmailHandler = (event) => {
-		const { style, email } = validateEmail(event);
-
-		emailStyle = style;
-
-		setEnteredEmail(email);
-	};
-	const enteredPasswordHandler = (event) => {
-		const { style, password } = validateEnteredPassword(event);
-
-		passwordStyle = style;
-
-		setEnteredPassword(password);
-	};
-	const enteredConfirmPasswordHandler = (event, enteredPassword) => {
-		const { style, confirmPassword } =
-			validateEnteredConfirmPassword(event);
-
-		confirmPasswordStyle = style;
-
-		setEnteredConfirmPassword(confirmPassword);
-	};
-
 	const submitHandler = (event) => {
 		event.preventDefault();
-
 		register({
-			firstName: enteredFirstName,
-			lastName: enteredLastName,
-			email: enteredEmail,
-			password: enteredPassword,
-			passwordConfirm: enteredConfirmPassword,
+			user,
 		});
 	};
 
@@ -72,51 +25,52 @@ const Register = () => {
 		<Fragment>
 			<form className="auth" onSubmit={submitHandler}>
 				<div className="auth__controls">
-					<div className="auth__control">
-						<label className="auth__label">First Name</label>
-						<input
-							className={`auth__input ${firstNameStyle}`}
-							type="text"
-							value={enteredFirstName}
-							onChange={enteredFirstNameHandler}
-						/>
-					</div>
-					<div className="auth__control">
-						<label className="auth__label">Last Name</label>
-						<input
-							className={`auth__input ${lastNameStyle}`}
-							type="text"
-							value={enteredLastName}
-							onChange={enteredLastNameHandler}
-						/>
-					</div>
-					<div className="auth__control">
-						<label className="auth__label">Email</label>
-						<input
-							className={`auth__input ${emailStyle}`}
-							type="text"
-							value={enteredEmail}
-							onChange={enteredEmailHandler}
-						/>
-					</div>
-					<div className="auth__control">
-						<label className="auth__label">Password</label>
-						<input
-							className={`auth__input ${passwordStyle}`}
-							type="text"
-							value={enteredPassword}
-							onChange={enteredPasswordHandler}
-						/>
-					</div>
-					<div className="auth__control">
-						<label className="auth__label">Confirm Password</label>
-						<input
-							className={`auth__input ${confirmPasswordStyle}`}
-							type="text"
-							value={enteredConfirmPassword}
-							onChange={enteredConfirmPasswordHandler}
-						/>
-					</div>
+					<Input
+						validate={validateEnteredName}
+						name="First Name"
+						className="auth"
+						type="text"
+						errMessage="First name must be less than 30 characters and only letters"
+						onSaveData={addData}
+						field={'firstName'}
+					/>
+					<Input
+						validate={validateEnteredName}
+						name="Last Name"
+						className="auth"
+						type="text"
+						errMessage="Last name must be less than 30 characters and only letters"
+						onSaveData={addData}
+						field={'lastName'}
+					/>
+					<Input
+						validate={validateEnteredEmail}
+						name="Email"
+						className="auth"
+						type="text"
+						errMessage="Enter valid email"
+						onSaveData={addData}
+						field={'email'}
+					/>
+					<Input
+						validate={validateEnteredPassword}
+						name={'Password'}
+						className="auth"
+						type="text"
+						errMessage="A password must be minimum 8 characters"
+						onSaveData={addData}
+						field={'password'}
+					/>
+					<Input
+						validate={validateEnteredConfirmPassword}
+						name={'Confirm Password'}
+						className="auth"
+						type="text"
+						errMessage="Passwords are NOT the same"
+						onSaveData={addData}
+						enteredPassword={user}
+						field={'passwordConfirm'}
+					/>
 				</div>
 				<div>
 					<button type="submit" className="btn-square">
