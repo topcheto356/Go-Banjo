@@ -341,14 +341,21 @@ body {
   transition: all 300ms ease-in-out;
 }
 .auth__input:focus {
-  border-bottom: 5px solid #ff7730;
+  border-bottom: 5px solid green;
 }
 .auth__label {
   width: 30%;
   font-size: 2rem;
 }
+.auth__message {
+  display: block;
+}
 .auth__button-wrapper {
   width: 100%;
+}
+
+.invalid:focus {
+  border-bottom: 5px solid red;
 }
 
 .img-container {
