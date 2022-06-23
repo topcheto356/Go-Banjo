@@ -2,6 +2,7 @@ import { Fragment } from 'react';
 import Naviagtion from './components/Naviagtion/Naviagtion.js';
 import Header from './components/Header/Header.js';
 import Footer from './components/Footer/Footer.js';
+import CreateAd from './components/CreateAd/CreateAd.js';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Authentication from './components/Auth/Authentication.js';
@@ -23,6 +24,7 @@ function App() {
 					<Route exact path='/' component={Header} />
 					<Route exact path='/auth' component={Authentication} />
 					<Route exact path='/me' component={Account} />
+					<Route exact path='/ads' component={CreateAd} />
 				</Switch>
 				{/* <Footer></Footer> */}
 			</Router>
