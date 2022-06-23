@@ -1,8 +1,7 @@
-import React, { Fragment, useState } from 'react';
-import Icon from '../Icons';
+import React, { Fragment, useState } from 'react';import Icon from '../Icons';
 import {
 	validateEnteredName,
-	validateEmail,
+	validateEnteredEmail,
 } from '../../controllers/validateData';
 
 const Account = () => {
@@ -36,7 +35,7 @@ const Account = () => {
 	};
 
 	const enteredEmailHandler = (event) => {
-		const { style, email } = validateEmail(event);
+		const { style, email } = validateEnteredEmail(event);
 
 		emailStyle = style;
 
