@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 const Input = (props) => {
 	const [enteredData, setEnteredData] = useState('');
 	const [style, setStyle] = useState('valid');
@@ -24,22 +24,20 @@ const Input = (props) => {
 	};
 
 	return (
-		<Fragment>
-			<div className={`${props.className}__control`}>
-				<label className={`${props.className}__label`}>{props.name}</label>
-				<input
-					className={`${props.className}__input ${style}`}
-					type={props.type}
-					value={enteredData}
-					onChange={enteredDataHandler}
-				/>
-				{style === 'invalid' ? (
-					<p className={`${props.className}__message`}>{props.errMessage}</p>
-				) : (
-					''
-				)}
-			</div>
-		</Fragment>
+		<div className={`${props.className}__control`}>
+			<label className={`${props.className}__label`}>{props.name}</label>
+			<input
+				className={`${props.className}__input ${style}`}
+				type={props.type}
+				value={enteredData}
+				onChange={enteredDataHandler}
+			/>
+			{style === 'invalid' ? (
+				<p className={`${props.className}__message`}>{props.errMessage}</p>
+			) : (
+				''
+			)}
+		</div>
 	);
 };
 
