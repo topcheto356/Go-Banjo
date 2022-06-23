@@ -12,7 +12,9 @@ const Input = (props) => {
 
 		if (!props.enteredPassword) {
 			result = props.validate(event);
-		} else result = props.validate(event, props.enteredPassword.password);
+		} else {
+			result = props.validate(event, props.enteredPassword.password);
+		}
 
 		const { style, data } = result;
 

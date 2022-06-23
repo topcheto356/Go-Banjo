@@ -49,6 +49,7 @@ const Register = () => {
 								errMessage={userField.errMessage}
 								onSaveData={userField.onSaveData}
 								field={userField.field}
+								enteredPassword={user}
 							/>
 						);
 					})}
