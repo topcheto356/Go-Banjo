@@ -1,5 +1,5 @@
 import React from 'react';
-import Icons from '../img/icons.svg';
+import Icons from '../../img/icons.svg';
 import PropTypes from 'prop-types';
 
 const Icon = ({ name, color, size }) => (

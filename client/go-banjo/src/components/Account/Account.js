@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import Icon from '../Icons';
+import Icon from '../UI/Icon';
 import {
 	validateEnteredName,
 	validateEnteredEmail,

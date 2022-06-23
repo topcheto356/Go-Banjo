@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon from '../Icons.js';
+import Icon from '../UI/Icon.js';
 
 const Features = () => {
 	return (
