@@ -10,7 +10,7 @@ const About = () => {
             <div className='about__container'>
                 <div className='about__info'>
                     <div className='about__info-first'>
-                        <h2 className='heading-secondary'>Epic houses</h2>
+                        <h2 className='heading-secondary small'>Epic houses</h2>
                         <p className='paragraph'>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Iusto numquam, incidunt laborum dignissimos
@@ -20,7 +20,7 @@ const About = () => {
                         </p>
                     </div>
                     <div className='about__info-second'>
-                        <h2 className='heading-secondary'>Epic houses</h2>
+                        <h2 className='heading-secondary small'>Epic houses</h2>
                         <p className='paragraph'>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Iusto numquam, incidunt laborum dignissimos
