@@ -19,7 +19,7 @@ const CreateAd = () => {
 	return (
 		<Fragment>
 			<form className='create-house' onSubmit={submitHandler}>
-				<div className='create-house_controls'>
+				<div className='create-house__controls'>
 					{houseFields.map((houseField) => {
 						/*
 							Get this
@@ -54,8 +54,8 @@ const CreateAd = () => {
 						);
 					})}
 				</div>
-				<div type='submit' className='btn-square'>
-					<button>Create Ad</button>
+				<div type='submit'>
+					<button className='btn-square'>Create Ad</button>
 				</div>
 			</form>
 			<div className='img-container'></div>
