@@ -6,14 +6,13 @@ const Input = (props) => {
 	const saveData = (data) => {
 		props.onSaveData(data);
 	};
-
 	const enteredDataHandler = (event) => {
 		let result;
 
 		if (!props.enteredPassword) {
 			result = props.validate(event);
 		} else {
-			result = props.validate(event, props.enteredPassword.password);
+			result = props.validate(event, props.enteredPassword);
 		}
 
 		const { style, data } = result;

@@ -1,65 +1,31 @@
-import React, { Fragment } from 'react';
-import Input from '../UI/Input';
+import React, { Fragment, useState } from 'react';
 
 import { register } from '../../controllers/authController.js';
 import userFields from '../../controllers/inputFields/userFields';
+import Form from '../UI/Form';
 
 const Register = () => {
-	const user = {};
+	const [user, setUser] = useState({
+		password: '',
+	});
 
 	const addData = (data) => {
 		user[data.key] = data.value;
-	};
-	const submitHandler = (event) => {
-		event.preventDefault();
-		register(user);
+
+		setUser((prevState) => {
+			return { ...prevState, ...user };
+		});
 	};
 
 	return (
 		<Fragment>
-			<form className='auth' onSubmit={submitHandler}>
-				<div className='auth__controls'>
-					{userFields.map((userField) => {
-						/*
-							Get this
-							{
-								name: Label name,
-								type: input type,
-								validate: Validator,
-								errMessage: Error message,
-								field: field name,
-							}
-
-							Add this 
-							{
-								className: 'create-house',
-								onSaveData: addData
-							}
-						*/
-						userField['className'] = 'auth';
-						userField['onSaveData'] = addData;
-
-						return (
-							<Input
-								key={userField.field}
-								validate={userField.validate}
-								name={userField.name}
-								className={userField.className}
-								type={userField.type}
-								errMessage={userField.errMessage}
-								onSaveData={userField.onSaveData}
-								field={userField.field}
-								enteredPassword={user}
-							/>
-						);
-					})}
-				</div>
-				<div>
-					<button type='submit' className='btn-square'>
-						Register
-					</button>
-				</div>
-			</form>
+			<Form
+				className='auth'
+				addData={addData}
+				submit={register}
+				submitData={user}
+				fields={userFields}
+			/>
 			<div className='img-container'></div>
 		</Fragment>
 	);
