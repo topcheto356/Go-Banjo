@@ -5,9 +5,7 @@ import { createHouse } from '../../controllers/housesController';
 import Form from '../UI/Form';
 
 const CreateAd = () => {
-	const [house, setHouse] = useState({
-		password: '',
-	});
+	const [house, setHouse] = useState({});
 
 	const addData = (data) => {
 		house[data.key] = data.value;
@@ -25,6 +23,7 @@ const CreateAd = () => {
 				submit={createHouse}
 				submitData={house}
 				fields={houseFields}
+				btn='Create Ad'
 			/>
 			<div className='img-container'></div>
 		</Fragment>

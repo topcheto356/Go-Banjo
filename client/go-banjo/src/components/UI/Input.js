@@ -1,4 +1,20 @@
 import React, { useState } from 'react';
+
+/*
+	Wants
+
+	key = Field Name
+	validate = Validator
+	name = Label Name
+	className = className
+	type = Input type
+	errMessage = Err message 
+	onSaveData = parrent func to save data
+	field = Field Name
+	enteredPassword = submitData.password (used only for password validation)
+
+ */
+
 const Input = (props) => {
 	const [enteredData, setEnteredData] = useState('');
 	const [style, setStyle] = useState('valid');
@@ -7,15 +23,8 @@ const Input = (props) => {
 		props.onSaveData(data);
 	};
 	const enteredDataHandler = (event) => {
-		let result;
-
-		if (!props.enteredPassword) {
-			result = props.validate(event);
-		} else {
-			result = props.validate(event, props.enteredPassword);
-		}
-
-		const { style, data } = result;
+		//enteredPassword is for password validation
+		const { style, data } = props.validate(event, props.enteredPassword);
 
 		setStyle(style);
 

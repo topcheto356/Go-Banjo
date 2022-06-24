@@ -5,9 +5,7 @@ import userFields from '../../controllers/inputFields/userFields';
 import Form from '../UI/Form';
 
 const Register = () => {
-	const [user, setUser] = useState({
-		password: '',
-	});
+	const [user, setUser] = useState({});
 
 	const addData = (data) => {
 		user[data.key] = data.value;
@@ -25,6 +23,7 @@ const Register = () => {
 				submit={register}
 				submitData={user}
 				fields={userFields}
+				btn='Register'
 			/>
 			<div className='img-container'></div>
 		</Fragment>

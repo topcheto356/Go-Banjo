@@ -2,6 +2,18 @@ import React from 'react';
 
 import Input from './Input';
 
+/*
+	Wants
+
+	className = className
+	submit = controller method
+	fields = needed fields 
+	btn= btn name
+	addData= parrent func to save data
+	submitData= submited data 
+		
+ */
+
 const Form = (props) => {
 	const submitHandler = (event) => {
 		event.preventDefault();
@@ -48,7 +60,7 @@ const Form = (props) => {
 			</div>
 			<div>
 				<button type='submit' className='btn-square'>
-					Register
+					{props.btn}
 				</button>
 			</div>
 		</form>
