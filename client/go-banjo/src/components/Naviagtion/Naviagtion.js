@@ -26,6 +26,11 @@ const Naviagtion = () => {
 						Create AD
 					</Link>
 				</li>
+				<li className='nav__item'>
+					<Link to={'/me'} className='nav__link'>
+						Me
+					</Link>
+				</li>
 				<li className='nav__item btn-white'>
 					{user ? (
 						<div onClick={() => dispatch(logout())}>Logout</div>
