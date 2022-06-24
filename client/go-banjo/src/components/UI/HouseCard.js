@@ -7,7 +7,7 @@ const HouseCard = ({ house, className }) => {
 
     return (
         <Link
-            to={'/'}
+            to={`/houses/house/${house.id}`}
             className={`${className}__house-card house-card nav__link
         `}
         >
