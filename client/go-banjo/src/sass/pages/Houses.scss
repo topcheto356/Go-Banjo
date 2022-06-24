@@ -1,0 +1,25 @@
+.houses {
+    position: relative;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    width: 100%;
+    padding: 1rem;
+
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+
+    gap: 1rem;
+
+    animation: moveInBottom 300ms ease-in-out;
+
+    &__house-card {
+        height: 55rem;
+        text-align: center;
+        width: calc(100% / 4 - 1rem);
+    }
+}
