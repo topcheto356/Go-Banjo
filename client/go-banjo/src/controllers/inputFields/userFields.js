@@ -1,4 +1,4 @@
-import validateUserData from '../VatidateData/validateUser';
+import validateUserData from '../vatidateData/validateUser';
 
 /*
     {
@@ -45,6 +45,7 @@ const userFields = [
 		validate: validateUserData.confirmPassword,
 		errMessage: 'Passwords are NOT the same',
 		field: 'passwordConfirm',
+		enteredPassword: '',
 	},
 ];
 

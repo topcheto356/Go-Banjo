@@ -1,63 +1,30 @@
-import React, { Fragment } from 'react';
-import Input from '../UI/Input';
+import React, { Fragment, useState } from 'react';
 
 import houseFields from '../../controllers/inputFields/houseFields';
 import { createHouse } from '../../controllers/housesController';
+import Form from '../UI/Form';
 
 const CreateAd = () => {
-	const house = {};
+	const [house, setHouse] = useState({});
 
 	const addData = (data) => {
 		house[data.key] = data.value;
-	};
 
-	const submitHandler = (event) => {
-		event.preventDefault();
-		createHouse(house);
+		setHouse((prevState) => {
+			return { ...prevState, ...house };
+		});
 	};
 
 	return (
 		<Fragment>
-			<form className='create-house' onSubmit={submitHandler}>
-				<div className='create-house_controls'>
-					{houseFields.map((houseField) => {
-						/*
-							Get this
-							{
-								name: Label name,
-								type: input type,
-								validate: Validator,
-								errMessage: Error message,
-								field: field name,
-							}
-
-							Add this 
-							{
-								className: 'create-house',
-								onSaveData: addData
-							}
-						*/
-						houseField['className'] = 'create-house';
-						houseField['onSaveData'] = addData;
-
-						return (
-							<Input
-								key={houseField.field}
-								validate={houseField.validate}
-								name={houseField.name}
-								className={houseField.className}
-								type={houseField.type}
-								errMessage={houseField.errMessage}
-								onSaveData={houseField.onSaveData}
-								field={houseField.field}
-							/>
-						);
-					})}
-				</div>
-				<div type='submit' className='btn-square'>
-					<button>Create Ad</button>
-				</div>
-			</form>
+			<Form
+				className='auth'
+				addData={addData}
+				submit={createHouse}
+				submitData={house}
+				fields={houseFields}
+				btn='Create Ad'
+			/>
 			<div className='img-container'></div>
 		</Fragment>
 	);

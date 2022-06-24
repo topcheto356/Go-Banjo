@@ -1,4 +1,4 @@
-import validateHouseData from '../VatidateData/validateHouse';
+import validateHouseData from '../vatidateData/validateHouse';
 
 /*
     {
