@@ -1,7 +1,38 @@
+const multer = require('multer');
+
 const User = require('../models/userModel');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 const factory = require('./handlerFactory');
+
+const multerStorage = multer.diskStorage({
+	destination: (req, file, cb) => {
+		cb(null, '../client/go-banjo/src/img/users');
+	},
+	filename: (req, file, cb) => {
+		// user-user.id-currentTimeStamp
+		// user-ms8f3bcw2341d-1324612341.jpeg
+
+		const ext = file.mimetype.split('/')[1];
+
+		cb(null, `user-${req.user._doc._id}-${Date.now()}.${ext}`);
+	},
+});
+
+const multerFilter = (req, file, cb) => {
+	if (file.mimetype.startsWith('image')) {
+		cb(null, true);
+	} else {
+		cb(new AppError('Not image, please upload only images', 400), false);
+	}
+};
+
+const upload = multer({
+	storage: multerStorage,
+	fileFilter: multerFilter,
+});
+
+exports.uploadUserPhoto = upload.single('photo');
 
 //filter the updated data
 const filterObj = (obj, allowedFields) => {
@@ -33,12 +64,17 @@ exports.updateMe = catchAsync(async (req, res, next) => {
 	const allowedFields = ['firstName', 'lastName', 'email'];
 	const filteredBody = filterObj(req.body, allowedFields);
 
+	if (req.file) filteredBody.photo = req.file.filename;
 	// update doc
-	const updatedUser = await User.findByIdAndUpdate(req.user.id, filteredBody, {
-		new: true,
-		runValidators: true,
-	});
-
+	console.log(filteredBody);
+	const updatedUser = await User.findByIdAndUpdate(
+		req.user._doc._id,
+		filteredBody,
+		{
+			new: true,
+			runValidators: true,
+		}
+	);
 	res.status(200).json({
 		status: 'success',
 		data: {
@@ -48,7 +84,7 @@ exports.updateMe = catchAsync(async (req, res, next) => {
 });
 
 exports.deleteMe = catchAsync(async (req, res, next) => {
-	await User.findByIdAndUpdate(req.user.id, { active: false });
+	await User.findByIdAndUpdate(req.user._doc._id, { active: false });
 
 	res.status(204).json({
 		status: 'success',
