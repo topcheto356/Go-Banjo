@@ -93,12 +93,12 @@ houseSchema.pre('save', function (next) {
     next();
 });
 
-//Query middleware
+// Query middleware
 
 //to populate owner field
 houseSchema.pre(/^find/, function (next) {
     this.populate({
-        path: 'owners',
+        path: 'owner',
         select: '-__v -passwordChangedAt',
     });
     next();
