@@ -69,3 +69,25 @@ export const loadUser = async () => {
 		console.log(err);
 	}
 };
+
+export const updateUser = async (updateData) => {
+	const firstName = {};
+	firstName.firstName = updateData;
+
+	const config = {
+		headers: {
+			'Content-Type': 'application/json',
+		},
+	};
+
+	const body = JSON.stringify(firstName);
+	try {
+		const res = await axios.patch(
+			'http://localhost:8000/api/users/updateMe',
+			body,
+			config
+		);
+	} catch (err) {
+		console.log(3);
+	}
+};
