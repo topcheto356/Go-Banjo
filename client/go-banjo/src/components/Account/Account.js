@@ -1,37 +1,19 @@
-import React, { useState } from 'react';
-
-import Form from '../UI/Form';
-
-import { register } from '../../controllers/authController.js';
-import userFields from '../../controllers/inputFields/userFields';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 const Account = () => {
-	const [user, setUser] = useState({});
-
-	const addData = (data) => {
-		user[data.key] = data.value;
-
-		setUser((prevState) => {
-			return { ...prevState, ...user };
-		});
-	};
+	const user = useSelector((state) => state.auth.user);
+	if (!user) return null;
+	console.log(user);
 
 	return (
-		<main className='account'>
-			<div className='account-section'>
-				<img src='../img/banjo.jpg' alt='pen' />
-			</div>
-			<div className='account-section'>
-				<Form
-					className='account-section-acc'
-					addData={addData}
-					submit={register}
-					submitData={user}
-					fields={userFields}
-					btn='Update Information'
-				/>
-			</div>
-		</main>
+		<div>
+			<img
+				src={`/users/${user.photo}`}
+				alt='kura mi qnko'
+				className='house-card-img'
+			/>
+		</div>
 	);
 };
 

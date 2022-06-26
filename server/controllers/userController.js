@@ -47,11 +47,10 @@ exports.resizeUserPhoto = catchAsync(async (req, res, next) => {
 		.resize(500, 500)
 		.toFormat('jpeg')
 		.jpeg({ quality: 90 })
-		.toFile(`../client/go-banjo/src/img/users/${req.file.filename}`);
+		.toFile(`./img/users/${req.file.filename}`);
 
 	req.body.photoPath = `${url}/img/users/${req.file.filename}`;
-
-	req.next();
+	next();
 });
 
 //filter the updated data
@@ -70,7 +69,7 @@ exports.getMe = (req, res, next) => {
 
 exports.updateMe = catchAsync(async (req, res, next) => {
 	// create error if user post password data
-
+	console.log(req.body);
 	if (req.body.password || req.body.passwordConfirm) {
 		return next(
 			new AppError(
@@ -81,7 +80,13 @@ exports.updateMe = catchAsync(async (req, res, next) => {
 	}
 
 	//filter fields names that are not allowed to be updated
-	const allowedFields = ['firstName', 'lastName', 'email'];
+	const allowedFields = [
+		'firstName',
+		'lastName',
+		'email',
+		'photo',
+		'photoPath',
+	];
 	const filteredBody = filterObj(req.body, allowedFields);
 
 	if (req.file) filteredBody.photo = req.file.filename;

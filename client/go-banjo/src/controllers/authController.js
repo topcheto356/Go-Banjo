@@ -24,7 +24,7 @@ export const login = async (loginData) => {
 
 		store.dispatch(authSuccess(res.data));
 	} catch (err) {
-		console.log(3);
+		console.log(err.response.data.message);
 	}
 };
 
@@ -45,7 +45,7 @@ export const register = async (registerData) => {
 
 		store.dispatch(authSuccess(res.data));
 	} catch (err) {
-		console.log(3);
+		console.log(err.response.data.message);
 	}
 };
 
@@ -66,7 +66,7 @@ export const loadUser = async () => {
 	} catch (err) {
 		store.dispatch(logout());
 
-		console.log(err);
+		console.log(err.response.data.message);
 	}
 };
 
