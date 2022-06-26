@@ -1,17 +1,17 @@
 .authentication {
-	position: relative;
+    position: relative;
 
-	display: flex;
-	justify-content: flex-start;
-	align-items: flex-start;
-	flex-direction: column;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
 
-	height: 50rem;
-	width: 100%;
-	padding: 2rem;
+    height: 60rem;
+    width: 100%;
+    padding: 2rem;
 
-	margin-top: 4rem;
-	margin-bottom: 4rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
 
-	animation: moveInBottom 300ms ease-in-out;
+    animation: moveInBottom 300ms ease-in-out;
 }

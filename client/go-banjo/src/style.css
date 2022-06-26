@@ -323,8 +323,7 @@ body {
   font-size: 1.5rem;
   position: absolute;
   top: 50%;
-  transform: translateY(-20%);
-  height: 100%;
+  transform: translateY(-50%);
   width: 40%;
   max-width: 50rem;
   padding: 2rem;
@@ -538,7 +537,7 @@ body {
   align-items: center;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.5);
   border-radius: 0.4rem;
-  width: 15%;
+  width: 20%;
   height: 30rem;
   padding: 1rem;
   transition: all 300ms ease-in-out;
@@ -707,6 +706,75 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.house-card-img {
+  height: 20rem;
+}
+
+.house {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+.house__image {
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  max-width: 120rem;
+  height: 60rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.5);
+}
+
+.active {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.left-arrow {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  font-size: 4rem;
+  color: white;
+  transform: translateY(-50%);
+  padding: 1rem 2.2rem 1.5rem 2.2rem;
+  z-index: 5;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.5);
+  background-image: linear-gradient(to right, rgba(4, 57, 109, 0.8), rgba(3, 32, 76, 0.8));
+  border-radius: 50%;
+  transition: all 300ms ease-in-out;
+}
+.left-arrow:active {
+  transform: translateY(-50%) scale(1.1);
+}
+
+.right-arrow {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  font-size: 4rem;
+  color: white;
+  padding: 1rem 2.2rem 1.5rem 2.2rem;
+  transform: translateY(-50%);
+  z-index: 5;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.5);
+  background-image: linear-gradient(to right, rgba(4, 57, 109, 0.8), rgba(3, 32, 76, 0.8));
+  border-radius: 50%;
+  transition: all 300ms ease-in-out;
+}
+.right-arrow:active {
+  transform: translateY(-50%) scale(1.1);
+}
 
 .btn-white {
   background-color: #fff;
@@ -777,7 +845,7 @@ body {
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
-  height: 50rem;
+  height: 60rem;
   width: 100%;
   padding: 2rem;
   margin-top: 4rem;
@@ -799,9 +867,36 @@ body {
   animation: moveInBottom 300ms ease-in-out;
 }
 .houses__house-card {
-  height: 55rem;
+  height: 50rem;
   text-align: center;
   width: calc(25% - 1rem);
+}
+
+.house {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 2rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  animation: moveInBottom 300ms ease-in-out;
+}
+
+.create-ad {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  height: 60rem;
+  width: 100%;
+  padding: 2rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  animation: moveInBottom 300ms ease-in-out;
 }
 
 /*# sourceMappingURL=style.css.map */
