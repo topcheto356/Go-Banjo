@@ -10,6 +10,7 @@ import { useEffect } from 'react';
 import { loadUser } from './controllers/authController.js';
 import Account from './components/Account/Account.js';
 import Houses from './components/Houses/Houses.js';
+import House from './components/House/House.js';
 function App() {
     useEffect(() => {
         if (localStorage.getItem('token')) {
@@ -27,6 +28,7 @@ function App() {
                     <Route exact path='/me' component={Account} />
                     <Route exact path='/ads' component={CreateAd} />
                     <Route exact path='/houses' component={Houses} />
+                    <Route exact path='/houses/house/:id' component={House} />
                 </Switch>
                 {/* <Footer></Footer> */}
             </Router>
