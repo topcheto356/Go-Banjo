@@ -4,7 +4,6 @@ const userController = require('../controllers/userController');
 
 const router = express.Router();
 
-//
 router.post('/signup', authController.signUp);
 router.post('/login', authController.login);
 
@@ -18,7 +17,12 @@ router.get('/getUser', authController.isLoggedIn);
 
 router.patch('/updateMyPassword', authController.updatePassword);
 
-router.patch('/updateMe', userController.updateMe);
+router.patch(
+	'/updateMe',
+	userController.uploadUserPhoto,
+	userController.resizeUserPhoto,
+	userController.updateMe
+);
 
 router.get('/me', userController.getMe, userController.getUser);
 
