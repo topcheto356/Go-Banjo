@@ -49,7 +49,9 @@ exports.resizeUserPhoto = catchAsync(async (req, res, next) => {
 		.jpeg({ quality: 90 })
 		.toFile(`../client/go-banjo/src/img/users/${req.file.filename}`);
 
-	next();
+	req.body.photoPath = `/img/users/${req.file.filename}`;
+
+	req.next();
 });
 
 //filter the updated data

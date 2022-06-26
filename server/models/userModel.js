@@ -43,6 +43,10 @@ const userSchema = new mongoose.Schema({
 		type: String,
 		default: 'default.jpeg',
 	},
+	photoPath: {
+		type: String,
+		default: 'img/users/default.jpeg',
+	},
 	role: {
 		type: String,
 		enum: ['user', 'owner', 'admin'],

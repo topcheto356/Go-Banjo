@@ -31,13 +31,34 @@ exports.resizeHouseImages = catchAsync(async (req, res, next) => {
     if (!req.files.imageCover || !req.files.images) return next();
 
     // cover image
-    req.body.imageCover = `tour-${req.params.id}-${Date.now()}-cover.jpeg`;
+    req.body.imageCover = `house-${req.params.id}-${Date.now()}-cover.jpeg`;
 
     await sharp(req.files.imageCover[0].buffer)
         .resize(2000, 1333)
         .toFormat('jpeg')
         .jpeg({ quality: 90 })
-        .toFile(`../client/go-banjo/src/img/houses/${req.body.imageCover}`);
+        .toFile(`./img/houses/${req.body.imageCover}`);
+
+    req.body.imageCoverPath = `/img/houses/${req.body.imageCover}`;
+    // images
+    req.body.images = [];
+
+    await Promise.all(
+        req.body.images.map(async (file, i) => {
+            const filename = `house-${req.params.id}-${Date.now()}-${
+                i + 1
+            }.jpeg`;
+
+            // house-id-time-1.jpeg
+            await sharp(file.buffer)
+                .resize(2000, 1333)
+                .toFormat('jpeg')
+                .jpeg({ quality: 90 })
+                .toFile(`../client/go-banjo/src/img/houses/${filename}`);
+
+            req.body.images.push(filename);
+        })
+    );
 
     next();
 });

@@ -50,9 +50,21 @@ const houseSchema = new mongoose.Schema(
 			required: [true, 'A house must have image cover'],
 			default: 'default.jpeg',
 		},
+		imageCoverPath: {
+			type: String,
+			default: '/img/houses/default.jpeg',
+		},
 		images: {
 			type: [String],
-			default: ['default[0].jpeg', 'default[1].jpeg', 'default[2].jpeg'],
+			default: ['default.jpeg', 'default.jpeg', 'default.jpeg'],
+		},
+		imagesPath: {
+			type: [String],
+			default: [
+				'/img/houses/default.jpeg',
+				'/img/houses/default.jpeg',
+				'/img/houses/default.jpeg',
+			],
 		},
 		location: {
 			type: String,
