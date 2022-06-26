@@ -2,6 +2,7 @@ const multer = require('multer');
 const sharp = require('sharp');
 
 const House = require('../models/houseModel');
+const AppError = require('../utils/appError.js');
 const catchAsync = require('../utils/catchAsync');
 const factory = require('./handlerFactory');
 
