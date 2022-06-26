@@ -31,6 +31,11 @@ const Naviagtion = () => {
 						Me
 					</Link>
 				</li>
+				<li className='nav__item'>
+					<Link to={'/updateMe'} className='nav__link'>
+						Update me
+					</Link>
+				</li>
 				<li className='nav__item btn-white'>
 					{user ? (
 						<div onClick={() => dispatch(logout())}>Logout</div>
