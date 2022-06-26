@@ -3,7 +3,23 @@ import { createSlice } from '@reduxjs/toolkit';
 export const houseSlice = createSlice({
     name: 'house',
     initialState: {
-        houses: [],
+        houses: [
+            {
+                location: 'Tilted Towers',
+                imageCover:
+                    'https://cdn.mos.cms.futurecdn.net/MNicN6WoB7NEAhrsgwnKgD.jpg',
+                description: '1242345123',
+                summary: 'bolesti',
+                price: 231,
+                maxGroupSize: 21,
+                name: 'Kurjavata Kushta',
+                images: [
+                    'https://cdn.mos.cms.futurecdn.net/MNicN6WoB7NEAhrsgwnKgD.jpg',
+                    'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/suburban-house-royalty-free-image-1584972559.jpg',
+                ],
+                id: '34',
+            },
+        ],
         house: null,
         loading: false,
     },
@@ -25,6 +41,15 @@ export const houseSlice = createSlice({
                 houses: [...payload.data],
             };
         },
+
+        loadHouse: (state, { type, payload }) => {
+            console.log(payload.data);
+
+            return {
+                ...state,
+                house: payload.data,
+            };
+        },
         removeHouse: (state, { type, payload }) => {
             console.log(payload);
 
@@ -36,6 +61,7 @@ export const houseSlice = createSlice({
     },
 });
 
-export const { addHouse, loadAllHouses, removeHouse } = houseSlice.actions;
+export const { addHouse, loadAllHouses, removeHouse, loadHouse } =
+    houseSlice.actions;
 
 export default houseSlice.reducer;
