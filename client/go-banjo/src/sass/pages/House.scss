@@ -1,0 +1,16 @@
+.house {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    width: 100%;
+    padding: 2rem;
+
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+
+    animation: moveInBottom 300ms ease-in-out;
+}
