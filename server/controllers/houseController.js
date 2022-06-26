@@ -29,7 +29,7 @@ exports.uploadHouseImages = upload.fields([
 
 exports.resizeHouseImages = catchAsync(async (req, res, next) => {
 	if (!req.files.imageCover || !req.files.images) return next();
-
+	const url = req.protocol + '://' + req.get('host');
 	// cover image
 	req.body.imageCover = `house-${req.params.id}-${Date.now()}-cover.jpeg`;
 
@@ -39,7 +39,7 @@ exports.resizeHouseImages = catchAsync(async (req, res, next) => {
 		.jpeg({ quality: 90 })
 		.toFile(`./img/houses/${req.body.imageCover}`);
 
-	req.body.imageCoverPath = `/img/houses/${req.body.imageCover}`;
+	req.body.imageCoverPath = `${url}/img/houses/${req.body.imageCover}`;
 	// images
 	req.body.images = [];
 	req.body.imagesPath = [];
@@ -53,7 +53,7 @@ exports.resizeHouseImages = catchAsync(async (req, res, next) => {
 				.jpeg({ quality: 90 })
 				.toFile(`./img/houses/${filename}`);
 			req.body.images.push(filename);
-			req.body.imagesPath.push(`/img/houses/${filename}`);
+			req.body.imagesPath.push(`${url}/img/houses/${filename}`);
 		})
 	);
 

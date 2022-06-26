@@ -42,14 +42,14 @@ exports.resizeUserPhoto = catchAsync(async (req, res, next) => {
 	if (!req.file) return next();
 
 	req.file.filename = `user-${req.user._doc._id}-${Date.now()}.jpeg`;
-
+	const url = req.protocol + '://' + req.get('host');
 	await sharp(req.file.buffer)
 		.resize(500, 500)
 		.toFormat('jpeg')
 		.jpeg({ quality: 90 })
 		.toFile(`../client/go-banjo/src/img/users/${req.file.filename}`);
 
-	req.body.photoPath = `/img/users/${req.file.filename}`;
+	req.body.photoPath = `${url}/img/users/${req.file.filename}`;
 
 	req.next();
 });
