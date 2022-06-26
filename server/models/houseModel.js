@@ -48,8 +48,12 @@ const houseSchema = new mongoose.Schema(
 		imageCover: {
 			type: String,
 			required: [true, 'A house must have image cover'],
+			default: 'default.jpeg',
 		},
-		images: [String],
+		images: {
+			type: [String],
+			default: ['default[0].jpeg', 'default[1].jpeg', 'default[2].jpeg'],
+		},
 		location: {
 			type: String,
 			required: [true, 'A house must have a location'],
