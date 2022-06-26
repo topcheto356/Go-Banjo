@@ -42,6 +42,7 @@ exports.resizeHouseImages = catchAsync(async (req, res, next) => {
 	req.body.imageCoverPath = `/img/houses/${req.body.imageCover}`;
 	// images
 	req.body.images = [];
+	req.body.imagesPath = [];
 	await Promise.all(
 		req.files.images.map(async (file, i) => {
 			const filename = `house-${req.params.id}-${Date.now()}-${i + 1}.jpeg`;
@@ -52,6 +53,7 @@ exports.resizeHouseImages = catchAsync(async (req, res, next) => {
 				.jpeg({ quality: 90 })
 				.toFile(`./img/houses/${filename}`);
 			req.body.images.push(filename);
+			req.body.imagesPath.push(`/img/houses/${filename}`);
 		})
 	);
 
