@@ -3,19 +3,20 @@ import { Link } from 'react-router-dom';
 import Icon from './Icon.js';
 
 const HouseCard = ({ house, className }) => {
-    console.log(house.id);
-
     return (
         <Link
             to={`/houses/house/${house.id}`}
             className={`${className}__house-card house-card nav__link
         `}
+            house={house}
         >
             <div className='house-card__name'>{house.name}</div>
             <div className={'house-card__image-container'}>
                 <img
+                    // src={house.imageCover}
                     src='https://images.adsttc.com/media/images/5ecd/d4ac/b357/65c6/7300/009d/large_jpg/02C.jpg?1590547607'
                     alt=''
+                    className='house-card-img'
                 />
             </div>
             <div className='house-card__info'>
@@ -45,7 +46,7 @@ const HouseCard = ({ house, className }) => {
                         ${house.price} per person
                     </p>
                     <p className='house-card__paragraph'>
-                        {house.ratingAverage} rating ({house.ratingQuantity})
+                        {house.ratingAverage} rating ({house.ratingsQuantity})
                     </p>
                 </div>
 
