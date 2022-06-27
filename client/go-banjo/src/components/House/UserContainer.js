@@ -30,11 +30,7 @@ const UserContainer = () => {
                     elit. Recusandae necessitatibus neque magni nihil deserunt
                     aut alias, repudiandae quae facere totam ad, doloremque
                     labore assumenda dicta distinctio soluta quasi corrupti
-                    quidem!Lorem ipsum dolor sit amet consectetur, adipisicing
-                    elit. Recusandae necessitatibus neque magni nihil deserunt
-                    aut alias, repudiandae quae facere totam ad, doloremque
-                    labore assumenda dicta distinctio soluta quasi corrupti
-                    quidem!
+                    quidem!Lorem ipsum dolor sit amet consectetur.
                 </p>
             </div>
         </div>
