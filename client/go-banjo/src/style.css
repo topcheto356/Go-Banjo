@@ -612,6 +612,12 @@ body {
 .create-house__button-wrapper {
   width: 100%;
 }
+.create-house .__img-container image {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 10px;
+}
 
 .invalid:focus {
   border-bottom: 5px solid red;
