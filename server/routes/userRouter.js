@@ -28,7 +28,7 @@ router.get('/me', userController.getMe, userController.getUser);
 
 router.delete('/deleteMe', userController.deleteMe);
 
-router.use(authController.restrictTo('admin'));
+// router.use(authController.restrictTo('admin'));
 
 router
 	.route('/')

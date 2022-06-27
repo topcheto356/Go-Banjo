@@ -12,9 +12,10 @@ const HouseCard = ({ house, className }) => {
         >
             <div className='house-card__name'>{house.name}</div>
             <div className={'house-card__image-container'}>
+                {console.log(house.imageCover)}
                 <img
-                    // src={house.imageCover}
-                    src='https://images.adsttc.com/media/images/5ecd/d4ac/b357/65c6/7300/009d/large_jpg/02C.jpg?1590547607'
+                    src={`/houses/${house.imageCover}`}
+                    // src='https://images.adsttc.com/media/images/5ecd/d4ac/b357/65c6/7300/009d/large_jpg/02C.jpg?1590547607'
                     alt=''
                     className='house-card-img'
                 />

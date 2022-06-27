@@ -64,6 +64,7 @@ app.use(cors());
 
 //serving static files
 app.use(express.static('img'));
+// app.use('/img', express.static(path.join('server/img/houses')));
 
 ////////////////////////////////////////////////////////
 //Routes
