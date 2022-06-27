@@ -21,7 +21,7 @@ export const houseSlice = createSlice({
             },
         ],
         house: null,
-        loading: false,
+        loading: true,
     },
     reducers: {
         addHouse: (state, { type, payload }) => {
