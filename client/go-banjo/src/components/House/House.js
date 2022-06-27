@@ -35,12 +35,11 @@ const House = () => {
         setCurrent(current === 0 ? length - 1 : current - 1);
     };
 
-    console.log(house.imageCoverPath);
+    console.log(house.imageCover);
 
     return (
         <section className='house'>
             <div className='house__container'>
-                <img src={house.imageCoverPath} alt='' />
                 <div className='house__image'>
                     <span className='left-arrow' onClick={prevImage}>
                         &larr;
@@ -61,7 +60,8 @@ const House = () => {
                                 {index === current && (
                                     <img
                                         // src={`../../img/houses/${image}`}
-                                        src={`../../img/houses/{image}`}
+                                        // src={`../../img/houses/{image}`}
+                                        src={image}
                                         alt=''
                                         className='house__image-item'
                                     />
