@@ -1,0 +1,35 @@
+.user {
+    width: 80%;
+    height: 20rem;
+    background-color: $color-grey-light-1;
+    transform: skew(-7deg);
+    padding: 2rem;
+    box-shadow: $box-shadow-spread;
+    margin-bottom: 4rem;
+
+    &__span {
+        margin-left: 2rem;
+        font-weight: 900;
+    }
+
+    &__paragraph {
+        font-weight: 900;
+    }
+
+    &__image-container {
+        position: relative;
+        float: left;
+
+        width: 30rem;
+
+        transform: skew(7deg);
+
+        shape-outside: circle(35% at 30% 50%);
+        clip-path: circle(30% at 30% 50%);
+        border-radius: 100%;
+    }
+
+    &__info-container {
+        font-size: 1.5rem;
+    }
+}
