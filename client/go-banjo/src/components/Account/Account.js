@@ -8,11 +8,7 @@ const Account = () => {
 
 	return (
 		<div>
-			<img
-				src={`/users/${user.photo}`}
-				alt='kura mi qnko'
-				className='house-card-img'
-			/>
+			<img src={user.photo} alt='user-photo' className='house-card-img' />
 		</div>
 	);
 };
