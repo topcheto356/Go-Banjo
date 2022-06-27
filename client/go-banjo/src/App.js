@@ -12,6 +12,8 @@ import Account from './components/Account/Account.js';
 import Houses from './components/Houses/Houses.js';
 import UpdateUser from './components/Account/UpdateUser.js';
 import House from './components/House/House.js';
+import PrivateRoute from './components/routes/PrivateRoute.js';
+import Error from './components/Error/Error.js';
 function App() {
     useEffect(() => {
         if (localStorage.getItem('token')) {
@@ -26,11 +28,16 @@ function App() {
                 <Switch>
                     <Route exact path='/' component={Header} />
                     <Route exact path='/auth' component={Authentication} />
-                    <Route exact path='/me' component={Account} />
-                    <Route exact path='/updateMe' component={UpdateUser} />
-                    <Route exact path='/ads' component={CreateAd} />
+                    <PrivateRoute exact path='/me' component={Account} />
+                    <PrivateRoute
+                        exact
+                        path='/updateMe'
+                        component={UpdateUser}
+                    />
+                    <PrivateRoute exact path='/ads' component={CreateAd} />
                     <Route exact path='/houses' component={Houses} />
                     <Route exact path='/houses/:id' component={House} />
+                    <Route path='' component={Error} />
                 </Switch>
                 {/* <Footer></Footer> */}
             </Router>
