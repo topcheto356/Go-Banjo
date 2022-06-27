@@ -29,9 +29,14 @@ const houseFields = [
 		name: 'Image Cover',
 		type: 'file',
 		accept: 'image/*',
-		validate: validateHouseData.imageCover,
-		errMessage: 'Image cover must have less or equal than 40 characters',
 		field: 'imageCover',
+	},
+	{
+		name: 'Images',
+		type: 'file',
+		multiple: 'multiple',
+		accept: 'image/*',
+		field: 'images',
 	},
 	{
 		name: 'Summary',

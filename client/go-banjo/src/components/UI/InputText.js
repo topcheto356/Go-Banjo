@@ -15,7 +15,7 @@ import React, { useState } from 'react';
 
  */
 
-const Input = (props) => {
+const InputText = (props) => {
 	const [enteredData, setEnteredData] = useState('');
 	const [style, setStyle] = useState('valid');
 
@@ -51,4 +51,4 @@ const Input = (props) => {
 	);
 };
 
-export default Input;
+export default InputText;

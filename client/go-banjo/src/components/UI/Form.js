@@ -1,6 +1,7 @@
 import React from 'react';
 
-import Input from './Input';
+import InputText from './InputText';
+import InputFile from './InputFile';
 
 /*
 	Wants
@@ -43,19 +44,33 @@ const Form = (props) => {
 					*/
 					field['className'] = props.className;
 					field['onSaveData'] = props.addData;
-					return (
-						<Input
-							key={field.field}
-							validate={field.validate}
-							name={field.name}
-							className={field.className}
-							type={field.type}
-							errMessage={field.errMessage}
-							onSaveData={field.onSaveData}
-							field={field.field}
-							enteredPassword={props.submitData.password}
-						/>
-					);
+					if (field.type !== 'file')
+						return (
+							<InputText
+								key={field.field}
+								validate={field.validate}
+								name={field.name}
+								className={field.className}
+								type={field.type}
+								errMessage={field.errMessage}
+								onSaveData={field.onSaveData}
+								field={field.field}
+								enteredPassword={props.submitData.password}
+							/>
+						);
+					else
+						return (
+							<InputFile
+								key={field.field}
+								name={field.name}
+								className={field.className}
+								type={field.type}
+								onSaveData={field.onSaveData}
+								field={field.field}
+								accept={field.accept}
+								multiple={field.multiple}
+							/>
+						);
 				})}
 			</div>
 			<div>
