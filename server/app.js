@@ -26,14 +26,14 @@ app.use(helmet());
 //  lunux & macOS - "start:prod": "NODE_ENV=production node server.js"
 //  windows - "start:prod": "SET NODE_ENV=production & node server.js"
 if (process.env.NODE_ENV === 'development') {
-	app.use(morgan('dev'));
+    app.use(morgan('dev'));
 }
 
 //rate timiter
 const limiter = rateLimit({
-	max: 100000,
-	windowMs: 60 * 60 * 1000, //1h
-	message: 'Too many requests from this IP, please try again in an hour',
+    max: 100000,
+    windowMs: 60 * 60 * 1000, //1h
+    message: 'Too many requests from this IP, please try again in an hour',
 });
 app.use('/api', limiter);
 
@@ -49,9 +49,14 @@ app.use(xss());
 
 //prevent parameter polution
 app.use(
-	hpp({
-		whitelist: ['maxGroupSize', 'ratingsAverage', 'ratingsQuantity', 'price'],
-	})
+    hpp({
+        whitelist: [
+            'maxGroupSize',
+            'ratingsAverage',
+            'ratingsQuantity',
+            'price',
+        ],
+    })
 );
 
 // No Access-Control-Allow-Origin
@@ -67,8 +72,8 @@ app.use('/api/users', userRouter);
 app.use('/api/reviews', reviewRouter);
 
 app.all('*', (req, res, next) => {
-	//if you pass argument in the next(), express will asume this is an error
-	next(new AppError(`Cant find ${req.originalUrl} on this server!`, 404));
+    //if you pass argument in the next(), express will asume this is an error
+    next(new AppError(`Cant find ${req.originalUrl} on this server!`, 404));
 });
 
 app.use(globalErrorHandler);

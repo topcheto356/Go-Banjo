@@ -10,11 +10,21 @@ const House = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        getHouse(id);
+        const awaitHouse = async () => {
+            await getHouse(id);
+        };
+
+        awaitHouse();
     }, [id]);
 
-    // const house = useSelector((state) => state.house.house);
-    const house = useSelector((state) => state.house.houses)[0];
+    const house = useSelector((state) => state.house.house);
+
+    console.log(house);
+
+    if (!house) {
+        return <div>Loading</div>;
+    }
+
     length = house.images.length;
 
     const nextImage = () => {
@@ -25,11 +35,12 @@ const House = () => {
         setCurrent(current === 0 ? length - 1 : current - 1);
     };
 
-    console.log(current);
+    console.log(house.imageCoverPath);
 
     return (
         <section className='house'>
             <div className='house__container'>
+                <img src={house.imageCoverPath} alt='' />
                 <div className='house__image'>
                     <span className='left-arrow' onClick={prevImage}>
                         &larr;
@@ -38,6 +49,8 @@ const House = () => {
                         &rarr;
                     </span>
                     {house.images.map((image, index) => {
+                        console.log(image);
+
                         return (
                             <div
                                 className={
@@ -47,7 +60,8 @@ const House = () => {
                             >
                                 {index === current && (
                                     <img
-                                        src={image}
+                                        // src={`../../img/houses/${image}`}
+                                        src={`../../img/houses/{image}`}
                                         alt=''
                                         className='house__image-item'
                                     />

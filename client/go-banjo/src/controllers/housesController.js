@@ -62,7 +62,6 @@ export const deleteHouse = async (id) => {
 export const getHouse = async (id) => {
     try {
         console.log(id);
-
         const res = await axios.get(`http://localhost:8000/api/houses/${id}`);
 
         store.dispatch(loadHouse(res.data));

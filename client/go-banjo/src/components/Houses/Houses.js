@@ -6,6 +6,10 @@ import HouseCard from '../UI/HouseCard.js';
 
 const Houses = () => {
     const houses = useSelector((state) => state.house.houses);
+    const user = useSelector((state) => state.auth.user);
+
+    console.log(user);
+
     useEffect(() => {
         getAllHouses();
     }, []);
