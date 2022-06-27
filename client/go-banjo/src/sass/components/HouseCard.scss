@@ -6,6 +6,13 @@
     gap: 2rem;
     font-size: 1.5rem;
 
+    & .icon {
+        height: unset;
+        width: unset;
+        font-size: 2rem;
+        margin-right: 2rem;
+    }
+
     &__paragraph {
         text-align: start;
     }

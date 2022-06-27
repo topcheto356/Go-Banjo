@@ -29,11 +29,11 @@ const HouseCard = ({ house, className }) => {
 
                 <div className='house-card__info-stats-container'>
                     <div className='house-card-item'>
-                        <Icon size={1} color='black' name='user'></Icon>
+                        <i class='fa-solid fa-user icon'></i>
                         <p className='paragraph'>{house.maxGroupSize} people</p>
                     </div>
                     <div className='house-card-item'>
-                        <Icon name='map-pin'></Icon>
+                        <i class='fa-solid fa-location-dot icon'></i>
                         <p className='paragraph house-card-item-location'>
                             {house.location}
                         </p>
