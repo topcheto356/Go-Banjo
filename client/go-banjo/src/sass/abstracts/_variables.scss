@@ -26,3 +26,9 @@ $grid-width: 114rem;
 $gutter-vertical: 8rem;
 $gutter-vertical-small: 6rem;
 $gutter-horizontal: 6rem;
+
+// Transition
+$transition-fast: all 300ms ease-in-out;
+
+// Box-Shadow
+$box-shadow-spread: 0 1.5rem 4rem rgba($color-black, 0.5);
