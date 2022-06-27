@@ -19,6 +19,10 @@
         border-radius: 10px;
         box-shadow: $box-shadow-spread;
     }
+
+    &__container {
+        margin-bottom: 4rem;
+    }
 }
 
 .active {

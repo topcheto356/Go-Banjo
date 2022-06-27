@@ -729,6 +729,9 @@ body {
   border-radius: 10px;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.5);
 }
+.house__container {
+  margin-bottom: 4rem;
+}
 
 .active {
   width: 100%;
@@ -774,6 +777,35 @@ body {
 }
 .right-arrow:active {
   transform: translateY(-50%) scale(1.1);
+}
+
+.user {
+  width: 80%;
+  height: 20rem;
+  background-color: #f7f7f7;
+  transform: skew(-7deg);
+  padding: 2rem;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.5);
+  margin-bottom: 4rem;
+}
+.user__span {
+  margin-left: 2rem;
+  font-weight: 900;
+}
+.user__paragraph {
+  font-weight: 900;
+}
+.user__image-container {
+  position: relative;
+  float: left;
+  width: 30rem;
+  transform: skew(7deg);
+  shape-outside: circle(35% at 30% 50%);
+  clip-path: circle(30% at 30% 50%);
+  border-radius: 100%;
+}
+.user__info-container {
+  font-size: 1.5rem;
 }
 
 .btn-white {
