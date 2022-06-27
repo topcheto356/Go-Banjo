@@ -553,7 +553,7 @@ body {
 .create-house {
   font-size: 1.5rem;
   position: absolute;
-  top: 50%;
+  top: 25%;
   transform: translateY(-20%);
   height: 100%;
   width: 40%;
@@ -566,6 +566,18 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
+}
+.create-house__control-images {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+.create-house__control-images__img-container {
+  display: flex;
+  width: 5rem;
+  height: 5rem;
+  gap: 2rem;
 }
 .create-house__controls {
   display: flex;
