@@ -5,7 +5,7 @@ import Icon from './Icon.js';
 const HouseCard = ({ house, className }) => {
     return (
         <Link
-            to={`/houses/house/${house.id}`}
+            to={`/houses/${house.id}`}
             className={`${className}__house-card house-card nav__link
         `}
             house={house}
