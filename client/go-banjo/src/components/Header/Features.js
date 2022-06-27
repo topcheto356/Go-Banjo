@@ -5,7 +5,7 @@ const Features = () => {
     return (
         <section className='features'>
             <div className='feature'>
-                <Icon name='home'></Icon>
+                <i class='fa-solid fa-house icon'></i>
                 <div className='feature__text-container'>
                     <h3 className='heading-tertiary'>Epic</h3>
                     <p className='paragraph'>
@@ -15,7 +15,7 @@ const Features = () => {
                 </div>
             </div>
             <div className='feature'>
-                <Icon name='home'></Icon>
+                <i class='fa-solid fa-house icon'></i>
                 <div className='feature__text-container'>
                     <h3 className='heading-tertiary'>Epic</h3>
                     <p className='paragraph'>
@@ -25,7 +25,7 @@ const Features = () => {
                 </div>
             </div>
             <div className='feature'>
-                <Icon name='home'></Icon>
+                <i class='fa-solid fa-house icon'></i>
                 <div className='feature__text-container'>
                     <h3 className='heading-tertiary'>Epic</h3>
                     <p className='paragraph'>

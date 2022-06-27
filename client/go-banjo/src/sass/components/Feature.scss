@@ -41,6 +41,12 @@
     height: 30rem;
     padding: 1rem;
 
+    & .icon {
+        height: unset;
+        width: unset;
+        font-size: 5rem;
+    }
+
     &__text-container {
         text-align: center;
     }
