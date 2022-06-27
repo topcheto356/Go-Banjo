@@ -16,27 +16,29 @@ const InputFile = (props) => {
 	}, [images]);
 
 	return (
-		<div className={`${props.className}__control`}>
-			<label className={`${props.className}__label`}>{props.name}</label>
-			<Fragment>
-				{props.multiple ? (
-					<input
-						className={`${props.className}__input`}
-						type={props.type}
-						multiple
-						accept={props.accept}
-						onChange={onImageChage}
-					/>
-				) : (
-					<input
-						className={`${props.className}__input`}
-						type={props.type}
-						accept={props.accept}
-						onChange={onImageChage}
-					/>
-				)}
-			</Fragment>
-			<div className={`${props.className}__img-container`}>
+		<div className={`${props.className}__control-images`}>
+			<div className={`${props.className}__control-image`}>
+				<label className={`${props.className}__label`}>{props.name}</label>
+				<Fragment>
+					{props.multiple ? (
+						<input
+							className={`${props.className}__input`}
+							type={props.type}
+							multiple
+							accept={props.accept}
+							onChange={onImageChage}
+						/>
+					) : (
+						<input
+							className={`${props.className}__input`}
+							type={props.type}
+							accept={props.accept}
+							onChange={onImageChage}
+						/>
+					)}
+				</Fragment>
+			</div>
+			<div className={`${props.className}__control-images__img-container`}>
 				{imageURLs.map((imageSrc) => (
 					<img src={imageSrc} alt='yo' />
 				))}
