@@ -4,7 +4,13 @@ const InputFile = (props) => {
 	const [images, setImages] = useState([]);
 	const [imageURLs, setImageURLs] = useState([]);
 
+	const saveData = (data) => {
+		props.onSaveData(data);
+	};
+
 	const onImageChage = (event) => {
+		saveData({ key: props.field, value: [...event.target.files] });
+
 		setImages([...event.target.files]);
 	};
 
@@ -39,8 +45,8 @@ const InputFile = (props) => {
 				</Fragment>
 			</div>
 			<div className={`${props.className}__control-images__img-container`}>
-				{imageURLs.map((imageSrc) => (
-					<img src={imageSrc} alt='yo' />
+				{imageURLs.map((imageSrc, index) => (
+					<img key={index} src={imageSrc} alt='yo' />
 				))}
 			</div>
 		</div>

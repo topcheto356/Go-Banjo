@@ -8,7 +8,15 @@ const CreateAd = () => {
 	const [house, setHouse] = useState({});
 
 	const addData = (data) => {
-		house[data.key] = data.value;
+		if (data.key === 'imageCover') {
+			house[data.key] = data.value[0];
+		} else if (data.key === 'images') {
+			const files = [];
+			data.value.forEach((file) => files.push(file));
+			house[data.key] = files;
+		} else {
+			house[data.key] = data.value;
+		}
 
 		setHouse((prevState) => {
 			return { ...prevState, ...house };

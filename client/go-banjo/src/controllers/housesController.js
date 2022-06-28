@@ -9,26 +9,30 @@ import {
 } from '../slices/houseSlice.js';
 
 export const createHouse = async (house) => {
+	const formData = new FormData();
+
+	for (const field in house) {
+		if (field === 'images') {
+			formData.append(field, 'kazah ne raboti!!!!');
+		} else formData.append(field, house[field]);
+	}
+
 	const config = {
 		headers: {
-			'Content-Type': 'application/json',
+			'Content-Type': 'multipart/form-data',
 		},
 	};
-
-	const body = JSON.stringify(house);
 
 	try {
 		const res = await axios.post(
 			'http://localhost:8000/api/houses',
-			body,
+			formData,
 			config
 		);
-
 		console.log(res);
-
 		store.dispatch(addHouse(res.data));
 	} catch (err) {
-		console.log(3);
+		console.log(err.response.data.message);
 	}
 };
 

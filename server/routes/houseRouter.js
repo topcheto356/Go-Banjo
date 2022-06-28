@@ -14,6 +14,8 @@ router
 router.route('/').get(houseController.getAllHouses).post(
 	authController.protect,
 	// authController.restrictTo('admin', 'owner'),
+	houseController.uploadHouseImages,
+	houseController.resizeHouseImages,
 	houseController.createHouse
 );
 
