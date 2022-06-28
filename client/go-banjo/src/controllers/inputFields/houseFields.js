@@ -32,7 +32,7 @@ const houseFields = [
 		field: 'imageCover',
 	},
 	{
-		name: 'Images',
+		name: 'Images (NOT WORKING)',
 		type: 'file',
 		multiple: 'multiple',
 		accept: 'image/*',
