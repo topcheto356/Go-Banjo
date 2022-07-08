@@ -1,79 +1,8 @@
 .account {
-    position: absolute;
-    top: 10rem;
-    width: 100%;
-    height: 100%;
+	width: 100%;
 
-    display: flex;
-    justify-content: center;
-
-    background-image: linear-gradient(
-            105deg,
-            rgba($color-primary, 0.8) 0%,
-            rgba($color-primary-light, 0.8) 50%,
-            transparent 80%
-        ),
-        url('./img/thumb-1920-435117.jpg');
-
-    background-position: center;
-    background-size: cover;
-    z-index: -1;
-
-    &-section {
-        display: inline-block;
-        width: 49.9%;
-
-        position: relative;
-        height: 10em;
-
-        &-acc {
-            font-size: 1.5rem;
-
-            max-width: 50rem;
-            padding: 2rem;
-            color: white;
-
-            &__control {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-                width: 100%;
-            }
-
-            &__controls {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            &__input {
-                width: 70%;
-                border: none;
-                padding: 0.75rem;
-                outline: none;
-                border-bottom: 5px solid transparent;
-                transition: $transition-fast;
-
-                &:focus {
-                    border-bottom: 5px solid green;
-                }
-            }
-
-            &__label {
-                width: 30%;
-                font-size: 2rem;
-            }
-            &__message {
-                display: block;
-            }
-
-            &__button-wrapper {
-                width: 100%;
-            }
-        }
-    }
+	&-nav {
+		width: 20%;
+		color: blue;
+	}
 }
