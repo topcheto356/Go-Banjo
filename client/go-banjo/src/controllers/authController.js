@@ -90,8 +90,34 @@ export const updateUser = async (updateData) => {
 			formData,
 			config
 		);
-		console.log(res.data);
 		store.dispatch(authSuccess(res.data));
+	} catch (err) {
+		console.log(err.response.data.message);
+	}
+};
+
+export const updateUserPassword = async (password) => {
+	const config = {
+		headers: {
+			'Content-Type': 'application/json',
+		},
+	};
+
+	const body = JSON.stringify(password);
+	try {
+	} catch (err) {
+		console.log(err.response.data.message);
+	}
+};
+export const updateUserEmail = async (email) => {
+	try {
+		const config = {
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		};
+
+		const body = JSON.stringify(email);
 	} catch (err) {
 		console.log(err.response.data.message);
 	}
