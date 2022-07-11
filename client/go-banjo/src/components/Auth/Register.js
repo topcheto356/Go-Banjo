@@ -5,6 +5,20 @@ import userFields from '../../controllers/inputFields/userFields';
 import Form from '../UI/Form';
 
 const Register = () => {
+	const neededFields = [
+		'firstName',
+		'lastName',
+		'email',
+		'password',
+		'passwordConfirm',
+	];
+
+	const filteredFields = userFields.filter((el) =>
+		neededFields.includes(el.field)
+	);
+
+	console.log(filteredFields);
+
 	const [user, setUser] = useState({});
 
 	const addData = (data) => {
@@ -22,7 +36,7 @@ const Register = () => {
 				addData={addData}
 				submit={register}
 				submitData={user}
-				fields={userFields}
+				fields={filteredFields}
 				btn='Register'
 			/>
 			<div className='img-container'></div>

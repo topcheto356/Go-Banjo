@@ -47,6 +47,12 @@ const userFields = [
 		field: 'passwordConfirm',
 		enteredPassword: '',
 	},
+	{
+		name: 'Account photo',
+		type: 'file',
+		accept: 'image/*',
+		field: 'photo',
+	},
 ];
 
 export default userFields;
