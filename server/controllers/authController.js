@@ -64,7 +64,6 @@ exports.login = catchAsync(async (req, res, next) => {
 
 exports.protect = catchAsync(async (req, res, next) => {
 	//  get token and check of its's there
-	console.log(req);
 	let token = req.header('x-auth-token');
 
 	// if (
@@ -159,7 +158,6 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
 });
 
 exports.resetPassword = catchAsync(async (req, res, next) => {
-	console.log(req);
 	// hash thee token to compare it
 	const hashedToken = crypto
 		.createHash('sha256')
