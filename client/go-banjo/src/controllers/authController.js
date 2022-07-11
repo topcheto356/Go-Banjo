@@ -71,23 +71,28 @@ export const loadUser = async () => {
 };
 
 export const updateUser = async (updateData) => {
-	const firstName = {};
-	firstName.firstName = updateData;
+	const formData = new FormData();
+
+	for (const field in updateData) {
+		formData.append(field, updateData[field]);
+		console.log(updateData[field]);
+	}
 
 	const config = {
 		headers: {
-			'Content-Type': 'application/json',
+			'Content-Type': 'multipart/form-data',
 		},
 	};
 
-	const body = JSON.stringify(firstName);
 	try {
 		const res = await axios.patch(
 			'http://localhost:8000/api/users/updateMe',
-			body,
+			formData,
 			config
 		);
+		console.log(res.data);
+		store.dispatch(authSuccess(res.data));
 	} catch (err) {
-		console.log(3);
+		console.log(err.response.data.message);
 	}
 };
