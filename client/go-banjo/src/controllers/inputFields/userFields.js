@@ -26,7 +26,7 @@ const userFields = [
 		field: 'lastName',
 	},
 	{
-		name: 'Email',
+		name: 'Email (ENTER LEGIT EMAIL)',
 		type: 'text',
 		validate: validateUserData.email,
 		errMessage: 'Enter valid email',
