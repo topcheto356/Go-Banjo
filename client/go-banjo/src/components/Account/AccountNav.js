@@ -9,22 +9,27 @@ const AccountNav = (props) => {
 			<ul className={`${props.className}__links`}>
 				<li className={`${props.className}__item`}>
 					<Link to={'/me'} className={`${props.className}__link`}>
-						yooo me-icona Settings
+						oi My account
 					</Link>
 				</li>
 				<li className={`${props.className}__item`}>
 					<Link to={'/me'} className={`${props.className}__link`}>
-						yooo me-icona my bookings
+						oi Settings
 					</Link>
 				</li>
 				<li className={`${props.className}__item`}>
 					<Link to={'/me'} className={`${props.className}__link`}>
-						yooo me-icona My rewies
+						oi my bookings
 					</Link>
 				</li>
 				<li className={`${props.className}__item`}>
 					<Link to={'/me'} className={`${props.className}__link`}>
-						yooo me-icona Billing
+						oi My rewies
+					</Link>
+				</li>
+				<li className={`${props.className}__item`}>
+					<Link to={'/me'} className={`${props.className}__link`}>
+						oi Billing
 					</Link>
 				</li>
 			</ul>
@@ -34,22 +39,22 @@ const AccountNav = (props) => {
 					<ul className={`${props.className}__links`}>
 						<li className={`${props.className}__item`}>
 							<Link to={'/me'} className={`${props.className}__link`}>
-								yooo me-icona Manage houses
+								oi Manage houses
 							</Link>
 						</li>
 						<li className={`${props.className}__item`}>
 							<Link to={'/me'} className={`${props.className}__link`}>
-								yooo me-icona Manage users
+								oi Manage users
 							</Link>
 						</li>
 						<li className={`${props.className}__item`}>
 							<Link to={'/me'} className={`${props.className}__link`}>
-								yooo me-icona Manage revies
+								oi Manage rewies
 							</Link>
 						</li>
 						<li className={`${props.className}__item`}>
 							<Link to={'/me'} className={`${props.className}__link`}>
-								yooo me-icona Manage bookings
+								oi Manage bookings
 							</Link>
 						</li>
 					</ul>

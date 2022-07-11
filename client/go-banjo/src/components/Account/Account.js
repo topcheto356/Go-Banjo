@@ -11,7 +11,9 @@ const Account = () => {
 	return (
 		<main className='account'>
 			<AccountNav className='account-nav' user={user} />
-			<AccountSettings className='account-settings' user={user} />
+			<div className='account-section'>
+				<AccountSettings className='account-section-settings' user={user} />
+			</div>
 		</main>
 	);
 };
