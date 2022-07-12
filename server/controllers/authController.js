@@ -205,6 +205,25 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
 	createAndSendToken(user, 200, res);
 });
 
+//change email
+exports.updateEmail = catchAsync(async (req, res, next) => {
+	//get user
+	const user = await User.findById(req.user.id).select('+password');
+
+	//check id POSTed password is correct
+	if (!(await user.correctPassoword(req.body.passwordCurrent, user.password))) {
+		return new AppError('Your password is wrong.', 401);
+	}
+
+	//update email
+	user.email = req.body.email;
+
+	await user.save();
+
+	//log user in, send JWT
+	createAndSendToken(user, 200, res);
+});
+
 // Only for rendered pages, no errors!
 exports.isLoggedIn = async (req, res, next) => {
 	const { token } = req.user;
