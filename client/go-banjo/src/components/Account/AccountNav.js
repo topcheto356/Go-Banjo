@@ -5,7 +5,7 @@ const AccountNav = (props) => {
 	const user = props.user;
 
 	return (
-		<div className={props.className}>
+		<nav className={props.className}>
 			<ul className={`${props.className}__links`}>
 				<li className={`${props.className}__item`}>
 					<Link to={'/me'} className={`${props.className}__link`}>
@@ -62,7 +62,7 @@ const AccountNav = (props) => {
 			) : (
 				''
 			)}
-		</div>
+		</nav>
 	);
 };
 
