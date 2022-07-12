@@ -401,6 +401,12 @@ body {
 .account-nav {
   width: 20%;
   background: #035c96;
+  font-size: 2rem;
+  color: #fff;
+}
+.account-nav-title {
+  font-size: 3rem;
+  border-bottom: 5px solid black;
 }
 .account-nav-item {
   display: flex;
@@ -408,7 +414,6 @@ body {
   padding: 2rem;
   list-style: none;
   text-transform: uppercase;
-  font-size: 2rem;
 }
 .account-nav-item:hover {
   background: #04396d;

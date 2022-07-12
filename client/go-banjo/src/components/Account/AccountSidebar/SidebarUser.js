@@ -1,13 +1,13 @@
 import React from 'react';
 
-export const SidebarData = [
+export const SidebarUser = [
 	{
-		title: 'my account',
+		title: 'my account (Not added)',
 		component: '/me',
 		icon: 'yoo',
 	},
 	{
-		title: 'settings',
+		title: 'settings (Not added)',
 		component: '/me',
 		icon: 'yoo',
 		// icon:<AiIcons.AiFillHome/>

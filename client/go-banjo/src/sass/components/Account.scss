@@ -6,6 +6,13 @@
 	&-nav {
 		width: 20%;
 		background: $color-primary-light;
+		font-size: 2rem;
+		color: $color-white;
+
+		&-title {
+			font-size: 3rem;
+			border-bottom: 5px solid black;
+		}
 
 		&-item {
 			display: flex;
@@ -13,7 +20,6 @@
 			padding: 2rem;
 			list-style: none;
 			text-transform: uppercase;
-			font-size: 2rem;
 
 			&:hover {
 				background: $color-primary;
