@@ -33,6 +33,11 @@ const userFields = [
 		field: 'email',
 	},
 	{
+		name: 'Current Password',
+		type: 'text',
+		field: 'passwordCurrent',
+	},
+	{
 		name: 'Password',
 		type: 'text',
 		validate: validateUserData.password,

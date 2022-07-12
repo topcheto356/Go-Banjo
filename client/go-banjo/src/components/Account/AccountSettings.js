@@ -13,10 +13,10 @@ const AccountSettings = (props) => {
 		['firstName', 'lastName', 'photo'].includes(el.field)
 	);
 	const updateUserPasswordFields = userFields.filter((el) =>
-		['password', 'passwordConfirm'].includes(el.field)
+		['passwordCurrent', 'password', 'passwordConfirm'].includes(el.field)
 	);
 	const updateEmailField = userFields.filter((el) =>
-		['email'].includes(el.field)
+		['passwordCurrent', 'email'].includes(el.field)
 	);
 
 	const [updatedData, setUpdatedData] = useState({});

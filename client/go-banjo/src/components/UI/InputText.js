@@ -24,9 +24,12 @@ const InputText = (props) => {
 	};
 	const enteredDataHandler = (event) => {
 		//enteredPassword is for password validation
-		const { style, data } = props.validate(event, props.enteredPassword);
+		const data = event.target.value;
+		if (props.validate) {
+			const { style } = props.validate(event, props.enteredPassword);
 
-		setStyle(style);
+			setStyle(style);
+		}
 
 		saveData({ key: props.field, value: data });
 
