@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import AccountNav from './AccountNav';
+import Sidebar from './AccountSidebar/Sidebar';
 import AccountSettings from './AccountSettings';
 
 const Account = () => {
@@ -10,9 +10,9 @@ const Account = () => {
 
 	return (
 		<main className='account'>
-			<AccountNav className='account-nav' user={user} />
+			<Sidebar className='account-nav' user={user} />
 			<div className='account-section'>
-				<AccountSettings className='account-section-settings' user={user} />
+				<AccountSettings className='account-section-settings' />
 			</div>
 		</main>
 	);
