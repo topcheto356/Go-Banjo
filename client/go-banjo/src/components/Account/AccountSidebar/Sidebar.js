@@ -8,14 +8,26 @@ const Sidebar = (props) => {
 	return (
 		<nav className={props.className}>
 			{SidebarUser.map((items, index) => {
-				return <SubMenu item={items} key={index} className={props.className} />;
+				return (
+					<SubMenu
+						item={items}
+						key={index}
+						className={props.className}
+						loadComponent={props.loadComponent}
+					/>
+				);
 			})}
 			{user.role === 'admin' && (
 				<Fragment>
 					<p className={`${props.className}-title`}>Admin</p>
 					{SidebarAdmin.map((items, index) => {
 						return (
-							<SubMenu item={items} key={index} className={props.className} />
+							<SubMenu
+								item={items}
+								key={index}
+								className={props.className}
+								loadComponent={props.loadComponent}
+							/>
 						);
 					})}
 				</Fragment>

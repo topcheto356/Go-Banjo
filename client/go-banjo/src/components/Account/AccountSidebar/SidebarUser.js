@@ -3,12 +3,11 @@ import React from 'react';
 export const SidebarUser = [
 	{
 		title: 'my account (Not added)',
-		component: '/me',
+		component: 'AccountMain',
 		icon: 'yoo',
 	},
 	{
 		title: 'settings (Not added)',
-		component: '/me',
 		icon: 'yoo',
 		// icon:<AiIcons.AiFillHome/>
 		iconClose: 'closed',
@@ -18,29 +17,29 @@ export const SidebarUser = [
 		subNav: [
 			{
 				title: 'change information',
-				component: '/me',
+				component: 'AccountSettingsInfo',
 				icon: 'yoo',
 			},
 			{
 				title: 'change password',
-				component: '/me',
+				component: 'AccountSettingsPassword',
 				icon: 'yoo',
 			},
 			{
 				title: 'change email',
-				component: '/me',
+				component: 'AccountSettingsEmail',
 				icon: 'yoo',
 			},
 		],
 	},
 	{
 		title: 'My reviews (Not added)',
-		component: '/me',
+		component: 'AccountReviews',
 		icon: 'yoo',
 	},
 	{
 		title: 'My bookings (Not added)',
-		component: '/me',
+		component: 'AccountBookings',
 		icon: 'yoo',
 	},
 ];
