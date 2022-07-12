@@ -6,7 +6,7 @@ import {
 	updateUserPassword,
 	updateUserEmail,
 } from '../../controllers/authController';
-import userFields from '../../controllers/inputFields/userFields';
+import userFields from '../../inputFields/userFields';
 
 const AccountSettings = (props) => {
 	const updateUserDataFields = userFields.filter((el) =>

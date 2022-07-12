@@ -1,4 +1,4 @@
-import validateUserData from '../vatidateData/validateUser.js';
+import validateUserData from '../vatidateData/validateUser';
 
 /*
     {

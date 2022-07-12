@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 
 import { register } from '../../controllers/authController.js';
-import userFields from '../../controllers/inputFields/userFields';
+import userFields from '../../inputFields/userFields';
 import Form from '../UI/Form';
 
 const Register = () => {

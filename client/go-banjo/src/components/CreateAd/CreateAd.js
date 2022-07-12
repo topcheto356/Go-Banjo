@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 
-import houseFields from '../../controllers/inputFields/houseFields';
+import houseFields from '../../inputFields/houseFields';
 import { createHouse } from '../../controllers/housesController';
 import Form from '../UI/Form';
 
