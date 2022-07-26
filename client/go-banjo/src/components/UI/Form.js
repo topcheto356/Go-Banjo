@@ -75,8 +75,11 @@ const Form = (props) => {
 						);
 				})}
 			</div>
-			<div>
-				<button type='submit' className='btn-square'>
+			<div className={`${props.className}__btn-submit`}>
+				<button
+					type='submit'
+					className={`btn-square ${props.className}__btn-submit`}
+				>
 					{props.btn}
 				</button>
 			</div>

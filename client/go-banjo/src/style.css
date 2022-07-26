@@ -234,7 +234,7 @@ body {
   color: inherit;
 }
 .nav__logo {
-  color: #fff;
+  color: #e1d9d1;
 }
 .nav__links {
   display: flex;
@@ -244,7 +244,7 @@ body {
   gap: 1rem;
 }
 .nav__item {
-  color: #fff;
+  color: #e1d9d1;
   transition: all 300ms ease-in-out;
 }
 
@@ -288,7 +288,7 @@ body {
 .footer {
   width: 100%;
   background-image: linear-gradient(to right, rgba(3, 92, 150, 0.8), rgba(4, 57, 109, 0.8));
-  color: white;
+  color: #e1d9d1;
 }
 .footer__main {
   display: flex;
@@ -320,77 +320,86 @@ body {
 }
 
 .auth {
-  font-size: 1.5rem;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40%;
-  max-width: 50rem;
-  padding: 2rem;
-  color: white;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 90vh;
 }
-.auth__control {
+.auth-section {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #035c96;
+}
+.auth-section-btn-position {
+  font-size: 2.5rem !important;
+}
+.auth-section-button-wrapper {
+  max-width: 50rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 40%;
+}
+.auth-section-img-container {
+  background-image: linear-gradient(to right, #035c96, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), url("./img/thumb-1920-435117.jpg");
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+}
+.auth-section-form {
+  font-size: 1.5rem;
+  max-width: 50rem;
+  padding: 2rem;
+  color: #e1d9d1;
   width: 100%;
 }
-.auth__controls {
+.auth-section-form__controls {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 1rem;
 }
-.auth__input {
+.auth-section-form__control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.auth-section-form__input {
   width: 70%;
   border: none;
   padding: 0.75rem;
   outline: none;
   border-bottom: 5px solid transparent;
   transition: all 300ms ease-in-out;
+  background-color: #e1d9d1;
 }
-.auth__input:focus {
+.auth-section-form__input-valid:focus {
   border-bottom: 5px solid green;
 }
-.auth__label {
-  width: 30%;
-  font-size: 2rem;
-}
-.auth__message {
-  display: block;
-}
-.auth__button-wrapper {
-  width: 100%;
-}
-
-.invalid:focus {
+.auth-section-form__input-invalid:focus {
   border-bottom: 5px solid red;
 }
-
-.img-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(105deg, rgba(4, 57, 109, 0.8) 0%, rgba(3, 92, 150, 0.8) 50%, transparent 80%), url("./img/thumb-1920-435117.jpg");
-  background-position: center;
-  background-size: cover;
+.auth-section-form__label {
+  font-size: 2rem;
+  text-align: center;
+  width: 50%;
 }
-
-.auth-btn-position {
+.auth-section-form__message {
+  width: 100%;
+  color: black;
+  text-align: center;
+}
+.auth-section-form__btn-submit {
+  padding-top: 1rem;
   font-size: 2.5rem !important;
 }
-
-.button-wrapper {
-  max-width: 50rem;
-  transform: translateY(100%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40%;
+.auth-section-form__forgot-pass {
+  text-align: center;
 }
 
 .account {
@@ -402,7 +411,7 @@ body {
   width: 20%;
   background: #035c96;
   font-size: 2rem;
-  color: #fff;
+  color: #e1d9d1;
 }
 .account-nav-title {
   font-size: 3rem;
@@ -442,7 +451,7 @@ body {
 }
 .account-section {
   width: 80%;
-  color: white;
+  color: #e1d9d1;
 }
 .account-section-settings {
   padding: 10rem 30rem 10rem 30rem;
@@ -594,7 +603,7 @@ body {
 }
 
 .feature {
-  background-color: #fff;
+  background-color: #e1d9d1;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -628,7 +637,7 @@ body {
   width: 40%;
   max-width: 50rem;
   padding: 2rem;
-  color: white;
+  color: #e1d9d1;
 }
 .create-house__control {
   display: flex;
@@ -675,35 +684,6 @@ body {
 }
 .create-house__button-wrapper {
   width: 100%;
-}
-
-.invalid:focus {
-  border-bottom: 5px solid red;
-}
-
-.img-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(105deg, rgba(4, 57, 109, 0.8) 0%, rgba(3, 92, 150, 0.8) 50%, transparent 80%), url("./img/thumb-1920-435117.jpg");
-  background-position: center;
-  background-size: cover;
-}
-
-.auth-btn-position {
-  font-size: 2.5rem !important;
-}
-
-.button-wrapper {
-  max-width: 50rem;
-  transform: translateY(100%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40%;
 }
 
 .house-card {
@@ -922,7 +902,7 @@ body {
 }
 
 .btn-white {
-  background-color: #fff;
+  background-color: #e1d9d1;
   color: #04396d;
   font-size: inherit;
   padding: 0.5rem 1.5rem;
@@ -942,7 +922,7 @@ body {
 
 .btn-grad {
   background-image: linear-gradient(to right, #04396d, #03204c);
-  color: #fff;
+  color: #e1d9d1;
   font-size: inherit;
   padding: 0.5rem 1.5rem;
   border-radius: 24px;
@@ -962,11 +942,12 @@ body {
 .btn-square {
   cursor: pointer;
   width: 100%;
-  color: white;
+  background-color: #e1d9d1;
+  color: #04396d;
   text-transform: uppercase;
   border: none;
-  background-image: linear-gradient(to right, rgba(255, 185, 0, 0.8), rgba(255, 119, 48, 0.8));
-  padding: 1rem 0;
+  border-radius: 24px;
+  padding: 0.5rem;
   font-size: inherit;
   transition: all 300ms ease;
 }

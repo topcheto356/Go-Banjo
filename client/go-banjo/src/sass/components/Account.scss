@@ -7,7 +7,7 @@
 		width: 20%;
 		background: $color-primary-light;
 		font-size: 2rem;
-		color: $color-white;
+		color: $color-darker-white;
 
 		&-title {
 			font-size: 3rem;
@@ -55,7 +55,7 @@
 
 	&-section {
 		width: 80%;
-		color: white;
+		color: $color-darker-white;
 
 		&-settings {
 			padding: 10rem 30rem 10rem 30rem;

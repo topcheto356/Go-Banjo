@@ -5,7 +5,7 @@
 		rgba($color-primary-light, 0.8),
 		rgba($color-primary, 0.8)
 	);
-	color: white;
+	color: $color-darker-white;
 
 	&__main {
 		display: flex;

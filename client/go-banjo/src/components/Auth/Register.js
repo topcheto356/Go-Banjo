@@ -17,8 +17,6 @@ const Register = () => {
 		neededFields.includes(el.field)
 	);
 
-	console.log(filteredFields);
-
 	const [user, setUser] = useState({});
 
 	const addData = (data) => {
@@ -30,17 +28,14 @@ const Register = () => {
 	};
 
 	return (
-		<Fragment>
-			<Form
-				className='auth'
-				addData={addData}
-				submit={register}
-				submitData={user}
-				fields={filteredFields}
-				btn='Register'
-			/>
-			<div className='img-container'></div>
-		</Fragment>
+		<Form
+			className='auth-section-form'
+			addData={addData}
+			submit={register}
+			submitData={user}
+			fields={filteredFields}
+			btn='Register'
+		/>
 	);
 };
 

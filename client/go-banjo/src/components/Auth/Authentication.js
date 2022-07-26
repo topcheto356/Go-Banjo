@@ -5,28 +5,29 @@ import Login from './Login';
 import Register from './Register';
 
 const Authentication = () => {
-    const [register, setRegister] = useState(false);
-    const isAuthenticated = useSelector((state) => state.auth.user);
+	const [register, setRegister] = useState(false);
+	const isAuthenticated = useSelector((state) => state.auth.user);
 
-    const switchHandler = (e) => {
-        setRegister(!register);
-    };
+	const switchHandler = (e) => {
+		setRegister(!register);
+	};
 
-    return (
-        <Fragment>
-            <section className='authentication'>
-                <div className='button-wrapper'>
-                    <button
-                        className='btn-white auth-btn-position'
-                        onClick={switchHandler}
-                    >
-                        Switch To {register ? 'Login' : 'Register'}
-                    </button>
-                </div>
-                {register ? <Register /> : <Login />}
-            </section>
-        </Fragment>
-    );
+	return (
+		<main className='auth'>
+			<section className='auth-section'>
+				<div className='button-wrapper'>
+					<button
+						className='btn-white auth-section-btn-position'
+						onClick={switchHandler}
+					>
+						Switch To {register ? 'Login' : 'Register'}
+					</button>
+				</div>
+				{register ? <Register /> : <Login />}
+			</section>
+			<section className='auth-section auth-section-img-container'> </section>
+		</main>
+	);
 };
 
 export default Authentication;

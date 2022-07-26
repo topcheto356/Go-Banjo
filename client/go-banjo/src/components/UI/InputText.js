@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 
 /*
 	Wants
@@ -38,20 +38,22 @@ const InputText = (props) => {
 	};
 
 	return (
-		<div className={`${props.className}__control`}>
-			<label className={`${props.className}__label`}>{props.name}</label>
-			<input
-				className={`${props.className}__input ${style}`}
-				type={props.type}
-				value={enteredData}
-				onChange={enteredDataHandler}
-			/>
+		<Fragment>
+			<div className={`${props.className}__control`}>
+				<label className={`${props.className}__label`}>{props.name}</label>
+				<input
+					className={`${props.className}__input ${props.className}__input-${style}`}
+					type={props.type}
+					value={enteredData}
+					onChange={enteredDataHandler}
+				/>
+			</div>
 			{style === 'invalid' ? (
-				<p className={`${props.className}__message`}>{props.errMessage}</p>
+				<div className={`${props.className}__message`}>{props.errMessage}</div>
 			) : (
 				''
 			)}
-		</div>
+		</Fragment>
 	);
 };
 
