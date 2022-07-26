@@ -23,6 +23,7 @@ const Account = () => {
 				user={user}
 				loadComponent={loadComponent}
 			/>
+
 			<AccountSection
 				className='account-section'
 				user={user}

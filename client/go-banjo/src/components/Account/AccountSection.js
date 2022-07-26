@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import AccountMain from './AccountUser/AccountMain';
 import AccountSettingsPassword from './AccountUser/AccountSettingsPassword';
@@ -8,31 +8,51 @@ import AccountReviews from './AccountUser/AccountReviews';
 import AccountBookings from './AccountUser/AccountBookings';
 
 const AccountSection = (props) => {
-	const user = props.user;
-
 	switch (props.component) {
-		case AccountMain:
-			return <AccountMain />;
-
-		case AccountSettingsInfo:
-			return <AccountSettingsInfo className={`${props.className}-settings`} />;
-
-		case AccountSettingsPassword:
+		case 'AccountMain':
 			return (
-				<AccountSettingsPassword className={`${props.className}-settings`} />
+				<AccountMain
+					user={props.user}
+					className={`${props.className} ${props.className}-main`}
+				/>
 			);
+			break;
 
-		case AccountSettingsEmail:
-			return <AccountSettingsEmail className={`${props.className}-settings`} />;
+		case 'AccountSettingsInfo':
+			return (
+				<AccountSettingsInfo
+					className={`${props.className} ${props.className}-settings`}
+				/>
+			);
+			break;
 
-		case AccountReviews:
+		case 'AccountSettingsPassword':
+			return (
+				<AccountSettingsPassword
+					className={`${props.className} ${props.className}-settings`}
+				/>
+			);
+			break;
+
+		case 'AccountSettingsEmail':
+			return (
+				<AccountSettingsEmail
+					className={`${props.className} ${props.className}-settings`}
+				/>
+			);
+			break;
+
+		case 'AccountReviews':
 			return <AccountReviews />;
+			break;
 
-		case AccountBookings:
+		case 'AccountBookings':
 			return <AccountBookings />;
+			break;
 
 		default:
 			return <AccountMain />;
+			break;
 	}
 };
 

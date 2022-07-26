@@ -442,10 +442,11 @@ body {
 }
 .account-section {
   width: 80%;
+  color: white;
 }
 .account-section-settings {
   padding: 10rem 30rem 10rem 30rem;
-  background-color: #04396d;
+  background-image: linear-gradient(to right, rgba(3, 92, 150, 0.8), rgba(4, 57, 109, 0.8));
   display: flex;
   flex-direction: column;
 }
@@ -494,6 +495,25 @@ body {
 }
 .account-section-settings__button-wrapper {
   width: 100%;
+}
+.account-section-main {
+  background-image: linear-gradient(to right, rgba(3, 92, 150, 0.8), rgba(4, 57, 109, 0.8));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.account-section-main-img-container__img {
+  border-radius: 50%;
+}
+.account-section-main__name {
+  font-size: 3rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+.account-section-main__email {
+  font-size: 2rem;
+  text-align: center;
 }
 
 .about {
