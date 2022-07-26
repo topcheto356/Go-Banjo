@@ -69,6 +69,8 @@ const Form = (props) => {
 								field={field.field}
 								accept={field.accept}
 								multiple={field.multiple}
+								validate={field.validate}
+								errMessage={field.errMessage}
 							/>
 						);
 				})}

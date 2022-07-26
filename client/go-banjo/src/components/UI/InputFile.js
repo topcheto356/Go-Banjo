@@ -3,6 +3,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 const InputFile = (props) => {
 	const [images, setImages] = useState([]);
 	const [imageURLs, setImageURLs] = useState([]);
+	const [style, setStyle] = useState('valid');
 
 	const saveData = (data) => {
 		props.onSaveData(data);
@@ -11,13 +12,20 @@ const InputFile = (props) => {
 	const onImageChage = (event) => {
 		saveData({ key: props.field, value: [...event.target.files] });
 
+		if (props.validate) {
+			const { style } = props.validate(event);
+			setStyle(style);
+		}
+
 		setImages([...event.target.files]);
 	};
 
 	useEffect(() => {
 		if (images.length < 1) return;
 		const newImageUrls = [];
+
 		images.forEach((image) => newImageUrls.push(URL.createObjectURL(image)));
+
 		setImageURLs(newImageUrls);
 	}, [images]);
 
@@ -27,13 +35,22 @@ const InputFile = (props) => {
 				<label className={`${props.className}__label`}>{props.name}</label>
 				<Fragment>
 					{props.multiple ? (
-						<input
-							className={`${props.className}__input`}
-							type={props.type}
-							multiple
-							accept={props.accept}
-							onChange={onImageChage}
-						/>
+						<Fragment>
+							<input
+								className={`${props.className}__input`}
+								type={props.type}
+								multiple
+								accept={props.accept}
+								onChange={onImageChage}
+							/>
+							{style === 'invalid' ? (
+								<p className={`${props.className}__message`}>
+									{props.errMessage}
+								</p>
+							) : (
+								''
+							)}
+						</Fragment>
 					) : (
 						<input
 							className={`${props.className}__input`}

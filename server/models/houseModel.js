@@ -13,6 +13,13 @@ const houseSchema = new mongoose.Schema(
 				40,
 				'A house name must have less or equal than 40 characters',
 			],
+			validate: {
+				//ignore white spaces and '-'
+				validator: function (name) {
+					return validator.isAlpha(name.replaceAll(/[\s-]+/g, ''), ['en-US']);
+				},
+				message: 'A house name is Not valid',
+			},
 		},
 		slug: String,
 		maxGroupSize: {
@@ -56,6 +63,13 @@ const houseSchema = new mongoose.Schema(
 		images: {
 			type: [String],
 			default: ['default.jpeg', 'default.jpeg', 'default.jpeg'],
+			validate: {
+				//ignore white spaces and '-'
+				validator: function (images) {
+					return images.length >= 3 && images.length <= 5;
+				},
+				message: 'A house images must be between 3 and 5',
+			},
 		},
 		imagesPath: {
 			type: [String],

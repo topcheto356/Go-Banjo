@@ -37,6 +37,8 @@ const houseFields = [
 		multiple: 'multiple',
 		accept: 'image/*',
 		field: 'images',
+		validate: validateHouseData.images,
+		errMessage: 'A house photos must be between 3 and 5',
 	},
 	{
 		name: 'Summary',

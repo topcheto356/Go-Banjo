@@ -1,9 +1,14 @@
+import validator from 'validator';
+
 const validateHouseData = {
 	houseName(event) {
 		const name = event.target.value;
 		let obj = { style: 'valid', data: name };
 
-		if (/[^a-zA-Z]+/g.test(name) || name.length > 40) {
+		if (
+			!validator.isAlpha(name.replaceAll(/[\s-]+/g, ''), ['en-US']) ||
+			name.length > 40
+		) {
 			obj = { style: 'invalid', data: name };
 		}
 
@@ -32,12 +37,12 @@ const validateHouseData = {
 		return obj;
 	},
 
-	imageCover(event) {
-		const imageCover = event.target.value;
-		let obj = { style: 'valid', data: imageCover };
+	images(event) {
+		const images = [...event.target.files];
+		let obj = { style: 'valid', data: images };
 
-		if (imageCover.length > 150) {
-			obj = { style: 'invalid', data: imageCover };
+		if (images.length < 3 || images.length > 5) {
+			obj = { style: 'invalid', data: images };
 		}
 
 		return obj;

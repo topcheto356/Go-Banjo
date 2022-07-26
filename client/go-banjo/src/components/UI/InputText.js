@@ -22,12 +22,13 @@ const InputText = (props) => {
 	const saveData = (data) => {
 		props.onSaveData(data);
 	};
+
 	const enteredDataHandler = (event) => {
 		//enteredPassword is for password validation
 		const data = event.target.value;
+
 		if (props.validate) {
 			const { style } = props.validate(event, props.enteredPassword);
-
 			setStyle(style);
 		}
 
