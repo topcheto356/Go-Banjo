@@ -25,17 +25,19 @@ const CreateAd = () => {
 
 	return (
 		<Fragment>
-			<section className='create-ad'>
-				<Form
-					className='create-house'
-					addData={addData}
-					submit={createHouse}
-					submitData={house}
-					fields={houseFields}
-					btn='Create Ad'
-				/>
-				<div className='img-container'></div>
-			</section>
+			<main className='create-house'>
+				<section className='create-house-section'>
+					<Form
+						className='create-house-section-form'
+						addData={addData}
+						submit={createHouse}
+						submitData={house}
+						fields={houseFields}
+						btn='Create Ad'
+					/>
+				</section>
+				<section className='create-house-section create-house-section-img-container'></section>
+			</main>
 		</Fragment>
 	);
 };

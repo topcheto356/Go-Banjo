@@ -25,7 +25,7 @@ const Authentication = () => {
 				</div>
 				{register ? <Register /> : <Login />}
 			</section>
-			<section className='auth-section auth-section-img-container'> </section>
+			<section className='auth-section auth-section-img-container'></section>
 		</main>
 	);
 };

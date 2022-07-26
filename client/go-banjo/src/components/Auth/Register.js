@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 
 import { register } from '../../controllers/authController.js';
 import userFields from '../../inputFields/userFields';
