@@ -109,6 +109,7 @@ export const updateUserPassword = async (password) => {
 		console.log(err.response.data.message);
 	}
 };
+
 export const updateUserEmail = async (email) => {
 	try {
 		const config = {

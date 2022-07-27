@@ -97,6 +97,7 @@ exports.protect = catchAsync(async (req, res, next) => {
 
 	//grand access to protected route
 	req.user = { ...freshUser, token: token };
+
 	next();
 });
 
@@ -188,7 +189,7 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
 
 exports.updatePassword = catchAsync(async (req, res, next) => {
 	//get user
-	const user = await User.findById(req.user.id).select('+password');
+	const user = await User.findById(req.user._doc._id).select('+password');
 
 	//check id POSTed password is correct
 	if (!(await user.correctPassoword(req.body.passwordCurrent, user.password))) {
@@ -208,7 +209,7 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
 //change email
 exports.updateEmail = catchAsync(async (req, res, next) => {
 	//get user
-	const user = await User.findById(req.user.id).select('+password');
+	const user = await User.findById(req.user._doc._id).select('+password');
 
 	//check id POSTed password is correct
 	if (!(await user.correctPassoword(req.body.passwordCurrent, user.password))) {
