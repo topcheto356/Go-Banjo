@@ -1,143 +1,144 @@
 .create-house {
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	height: 90vh;
+    width: 100%;
+    height: 90vh;
+    min-height: 800px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 
-	&-section {
-		width: 50%;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		background: $color-primary-light;
+    &-section {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: $color-primary-light;
 
-		&-btn-position {
-			font-size: 2.5rem !important;
-		}
+        &-btn-position {
+            font-size: 2.5rem !important;
+        }
 
-		&-button-wrapper {
-			max-width: 50rem;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			width: 40%;
-		}
+        &-button-wrapper {
+            max-width: 50rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40%;
+        }
 
-		&-img-container {
-			background-image: linear-gradient(
-					to right,
-					rgba($color-primary-light, 1),
-					rgba(white, 0),
-					rgba(white, 0)
-				),
-				url('./img/thumb-1920-435117.jpg');
-			background-size: auto 100%;
-			background-repeat: no-repeat;
-		}
+        &-img-container {
+            background-image: linear-gradient(
+                    to right,
+                    rgba($color-primary-light, 1),
+                    rgba(white, 0),
+                    rgba(white, 0)
+                ),
+                url('./img/thumb-1920-435117.jpg');
+            background-size: auto 100%;
+            background-repeat: no-repeat;
+        }
 
-		&-form {
-			font-size: 1.5rem;
-			max-width: 50rem;
-			padding: 2rem;
-			color: $color-darker-white;
-			width: 100%;
+        &-form {
+            font-size: 1.5rem;
+            max-width: 50rem;
+            padding: 2rem;
+            color: $color-darker-white;
+            width: 100%;
 
-			&__controls {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				flex-direction: column;
-				gap: 1rem;
-			}
+            &__controls {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 1rem;
+            }
 
-			&__control {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				width: 100%;
-			}
+            &__control {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+            }
 
-			&__control-images {
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-				align-items: center;
-				width: 100%;
+            &__control-images {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
 
-				&__img-container {
-					display: flex;
-					width: 5rem;
-					height: 5rem;
-					gap: 2rem;
-				}
-			}
+                &__img-container {
+                    display: flex;
+                    width: 5rem;
+                    height: 5rem;
+                    gap: 2rem;
+                }
+            }
 
-			&__input {
-				width: 70%;
-				border: none;
-				padding: 0.75rem;
-				outline: none;
-				border-bottom: 5px solid transparent;
-				transition: $transition-fast;
-				background-color: $color-darker-white;
+            &__input {
+                width: 70%;
+                border: none;
+                padding: 0.75rem;
+                outline: none;
+                border-bottom: 5px solid transparent;
+                transition: $transition-fast;
+                background-color: $color-darker-white;
 
-				&-valid:focus {
-					border-bottom: 5px solid green;
-				}
+                &-valid:focus {
+                    border-bottom: 5px solid green;
+                }
 
-				&-invalid:focus {
-					border-bottom: 5px solid red;
-				}
-			}
+                &-invalid:focus {
+                    border-bottom: 5px solid red;
+                }
+            }
 
-			&__inputFile {
-				&::file-selector-button {
-					display: none;
-				}
+            &__inputFile {
+                &::file-selector-button {
+                    display: none;
+                }
 
-				&::before {
-					color: $color-primary-light;
-					background-color: $color-darker-white;
-					display: inline-block;
-					content: 'Select photo';
-					border: none;
-					border-radius: 3px;
-					padding: 5px 8px;
-					font-size: 1rem;
-					transition: 0.5s;
-					font-weight: bold;
-					cursor: pointer;
-				}
+                &::before {
+                    color: $color-primary-light;
+                    background-color: $color-darker-white;
+                    display: inline-block;
+                    content: 'Select photo';
+                    border: none;
+                    border-radius: 3px;
+                    padding: 5px 8px;
+                    font-size: 1rem;
+                    transition: 0.5s;
+                    font-weight: bold;
+                    cursor: pointer;
+                }
 
-				&:hover::before {
-					color: $color-darker-white;
-					background-color: $color-primary-dark;
-				}
-			}
+                &:hover::before {
+                    color: $color-darker-white;
+                    background-color: $color-primary-dark;
+                }
+            }
 
-			&__label {
-				font-size: 2rem;
-				text-align: center;
-				width: 50%;
-				cursor: pointer;
-			}
+            &__label {
+                font-size: 2rem;
+                text-align: center;
+                width: 50%;
+                cursor: pointer;
+            }
 
-			&__message {
-				width: 100%;
-				color: black;
-				text-align: center;
-			}
+            &__message {
+                width: 100%;
+                color: black;
+                text-align: center;
+            }
 
-			&__btn-submit {
-				padding-top: 1rem;
-				font-size: 2.5rem !important;
-			}
+            &__btn-submit {
+                padding-top: 1rem;
+                font-size: 2.5rem !important;
+            }
 
-			&__forgot-pass {
-				text-align: center;
-			}
-		}
-	}
+            &__forgot-pass {
+                text-align: center;
+            }
+        }
+    }
 }
