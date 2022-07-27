@@ -188,11 +188,11 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
 
 exports.updatePassword = catchAsync(async (req, res, next) => {
 	//get user
-	const user = await User.findById(req.user.id).select('+password');
+	const user = await User.findById(req.user._doc._id).select('+password');
 
 	//check id POSTed password is correct
 	if (!(await user.correctPassoword(req.body.passwordCurrent, user.password))) {
-		return new AppError('Your current password is wrong.', 401);
+		return next(new AppError('Your current password is wrong.', 401));
 	}
 
 	//update password
@@ -208,20 +208,25 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
 //change email
 exports.updateEmail = catchAsync(async (req, res, next) => {
 	//get user
-	const user = await User.findById(req.user.id).select('+password');
+	const user = await User.findById(req.user._doc._id).select('+password');
 
 	//check id POSTed password is correct
 	if (!(await user.correctPassoword(req.body.passwordCurrent, user.password))) {
-		return new AppError('Your password is wrong.', 401);
+		return next(new AppError('Your password is wrong.', 401));
 	}
 
 	//update email
-	user.email = req.body.email;
-
-	await user.save();
+	const updatedUser = await User.findByIdAndUpdate(
+		req.user._doc._id,
+		{ email: req.body.email },
+		{
+			new: true,
+			runValidators: true,
+		}
+	);
 
 	//log user in, send JWT
-	createAndSendToken(user, 200, res);
+	createAndSendToken(updatedUser, 200, res);
 });
 
 // Only for rendered pages, no errors!
