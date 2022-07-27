@@ -80,13 +80,8 @@ exports.updateMe = catchAsync(async (req, res, next) => {
 	}
 
 	//filter fields names that are not allowed to be updated
-	const allowedFields = [
-		'firstName',
-		'lastName',
-		'email',
-		'photo',
-		'photoPath',
-	];
+	const allowedFields = ['firstName', 'lastName', 'photo', 'photoPath'];
+
 	const filteredBody = filterObj(req.body, allowedFields);
 
 	if (req.file) filteredBody.photo = req.file.filename;
@@ -100,6 +95,7 @@ exports.updateMe = catchAsync(async (req, res, next) => {
 			runValidators: true,
 		}
 	);
+
 	res.status(200).json({
 		status: 'success',
 		data: {
