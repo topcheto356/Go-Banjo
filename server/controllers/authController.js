@@ -101,6 +101,7 @@ exports.protect = catchAsync(async (req, res, next) => {
 
     //grand access to protected route
     req.user = { ...freshUser, token: token };
+
     next();
 });
 
