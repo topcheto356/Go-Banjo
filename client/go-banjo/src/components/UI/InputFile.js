@@ -37,23 +37,24 @@ const InputFile = (props) => {
 					{props.multiple ? (
 						<Fragment>
 							<input
-								className={`${props.className}__input`}
+								className={`${props.className}__inputFile`}
 								type={props.type}
 								multiple
 								accept={props.accept}
 								onChange={onImageChage}
 							/>
+
 							{style === 'invalid' ? (
-								<p className={`${props.className}__message`}>
+								<div className={`${props.className}__message`}>
 									{props.errMessage}
-								</p>
+								</div>
 							) : (
 								''
 							)}
 						</Fragment>
 					) : (
 						<input
-							className={`${props.className}__input`}
+							className={`${props.className}__inputFile`}
 							type={props.type}
 							accept={props.accept}
 							onChange={onImageChage}

@@ -683,6 +683,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   width: 100%;
 }
 .create-house-section-form__control-images__img-container {
@@ -706,10 +707,31 @@ body {
 .create-house-section-form__input-invalid:focus {
   border-bottom: 5px solid red;
 }
+.create-house-section-form__inputFile::file-selector-button {
+  display: none;
+}
+.create-house-section-form__inputFile::before {
+  color: #035c96;
+  background-color: #e1d9d1;
+  display: inline-block;
+  content: "Select photo";
+  border: none;
+  border-radius: 3px;
+  padding: 5px 8px;
+  font-size: 1rem;
+  transition: 0.5s;
+  font-weight: bold;
+  cursor: pointer;
+}
+.create-house-section-form__inputFile:hover::before {
+  color: #e1d9d1;
+  background-color: #03204c;
+}
 .create-house-section-form__label {
   font-size: 2rem;
   text-align: center;
   width: 50%;
+  cursor: pointer;
 }
 .create-house-section-form__message {
   width: 100%;
