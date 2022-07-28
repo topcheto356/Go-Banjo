@@ -88,15 +88,19 @@ exports.protect = catchAsync(async (req, res, next) => {
 
 	if (!freshUser) return next(new AppError('The user no longer exist', 401));
 
-	// checks if the user changed his password after the token was issued
-	if (freshUser.changedPasswordAfter(decoded.iat)) {
+	// checks if the user changed his password or email after the token was issued
+	if (
+		freshUser.changedPasswordAfter(decoded.iat) ||
+		freshUser.changedEmailAfter(decoded.iat)
+	) {
 		return next(
-			new AppError('User changed password. Please log in again', 401)
+			new AppError('User changed password or email. Please log in again', 401)
 		);
 	}
 
 	//grand access to protected route
 	req.user = { ...freshUser, token: token };
+
 	next();
 });
 

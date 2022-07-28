@@ -58,6 +58,7 @@ const userSchema = new mongoose.Schema({
 		default: true,
 		select: false,
 	},
+	emailChangedAt: Date,
 	passwordChangedAt: Date,
 	passwordResetToken: String,
 	passwordResetExpires: String,
@@ -92,6 +93,19 @@ userSchema.pre('save', function (next) {
 	next();
 });
 
+//update emailChangedAt
+userSchema.pre('save', function (next) {
+	//this point to the current doc
+
+	//if password field not changed
+	if (!this.isModified('email') || this.isNew) return next();
+
+	//sometimes JWT is created before the passwordChangedAt is created
+	//saved 1 sec in the past
+	this.emailChangedAt = Date.now() - 1000;
+	next();
+});
+
 //not show deleted users (active:false)
 userSchema.pre(/^find/, function (next) {
 	//this point to the current query
@@ -115,6 +129,19 @@ userSchema.methods.changedPasswordAfter = function (JWTTimestamp) {
 			this.passwordChangedAt.getTime() / 1000,
 			10
 		);
+
+		return JWTTimestamp > changedTimestamp;
+	}
+
+	//False === Not changed
+	return false;
+};
+
+userSchema.methods.changedEmailAfter = function (JWTTimestamp) {
+	// passwordChangedAt may not be even created
+	if (this.emailChangedAt) {
+		//returned in msec and needed in sec
+		const changedTimestamp = parseInt(this.emailChangedAt.getTime() / 1000, 10);
 
 		return JWTTimestamp > changedTimestamp;
 	}
