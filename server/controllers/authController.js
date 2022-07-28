@@ -218,7 +218,7 @@ exports.updateEmail = catchAsync(async (req, res, next) => {
 	if (!(await user.correctPassoword(req.body.passwordCurrent, user.password))) {
 		return next(new AppError('Your password is wrong.', 401));
 	}
-
+	console.log(this);
 	//update email
 	const updatedUser = await User.findByIdAndUpdate(
 		req.user._doc._id,

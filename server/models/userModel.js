@@ -130,7 +130,7 @@ userSchema.methods.changedPasswordAfter = function (JWTTimestamp) {
 			10
 		);
 
-		return JWTTimestamp > changedTimestamp;
+		return JWTTimestamp < changedTimestamp;
 	}
 
 	//False === Not changed
@@ -143,7 +143,7 @@ userSchema.methods.changedEmailAfter = function (JWTTimestamp) {
 		//returned in msec and needed in sec
 		const changedTimestamp = parseInt(this.emailChangedAt.getTime() / 1000, 10);
 
-		return JWTTimestamp > changedTimestamp;
+		return JWTTimestamp < changedTimestamp;
 	}
 
 	//False === Not changed
