@@ -29,7 +29,7 @@ export const createHouse = async (house) => {
 			formData,
 			config
 		);
-		console.log(res);
+
 		store.dispatch(addHouse(res.data));
 	} catch (err) {
 		console.log(err.response.data.message);
@@ -40,30 +40,24 @@ export const getAllHouses = async () => {
 	try {
 		const res = await axios.get('http://localhost:8000/api/houses');
 
-		console.log(res);
-
 		store.dispatch(loadAllHouses(res.data));
 	} catch (err) {
-		console.log(err);
+		console.log(err.response.data.message);
 	}
 };
 
 export const deleteHouse = async (id) => {
 	try {
-		console.log(id);
 		const res = await axios.delete(`http://localhost:8000/api/houses/${id}`);
-
-		console.log(res);
 
 		store.dispatch(removeHouse(id));
 	} catch (err) {
-		console.log(3);
+		console.log(err.response.data.message);
 	}
 };
 
 export const getHouse = async (id) => {
 	try {
-		console.log(id);
 		const res = await axios.get(`http://localhost:8000/api/houses/${id}`);
 
 		store.dispatch(loadHouse(res.data));

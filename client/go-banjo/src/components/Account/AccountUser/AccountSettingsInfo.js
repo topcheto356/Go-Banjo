@@ -14,7 +14,6 @@ const AccountSettingsInfo = (props) => {
 	const updateData = (data) => {
 		if (data.key === 'photo') {
 			updatedData[data.key] = data.value[0];
-			console.log(updatedData[data.key]);
 		} else updatedData[data.key] = data.value;
 
 		setUpdatedData((prevState) => {

@@ -28,7 +28,6 @@ exports.uploadHouseImages = upload.fields([
 ]);
 
 exports.resizeHouseImages = catchAsync(async (req, res, next) => {
-	console.log(req.files);
 	if (!req.files.imageCover) {
 		return next();
 	}

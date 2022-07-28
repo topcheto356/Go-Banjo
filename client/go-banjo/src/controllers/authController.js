@@ -1,7 +1,7 @@
 import axios from 'axios';
 import catchAsync from '../utils/catchAsync';
 import store from '../store.js';
-import { authSuccess, logout } from '../slices/authSlice.js';
+import { authSuccess, authUpdate, logout } from '../slices/authSlice.js';
 import setAuthToken from '../slices/setAuthToken.js';
 
 export const login = async (loginData) => {
@@ -63,7 +63,6 @@ export const loadUser = async () => {
 		store.dispatch(authSuccess(data));
 	} catch (err) {
 		store.dispatch(logout());
-
 		console.log(err.response.data.message);
 	}
 };
@@ -73,7 +72,6 @@ export const updateUser = async (updateData) => {
 
 	for (const field in updateData) {
 		formData.append(field, updateData[field]);
-		console.log(updateData[field]);
 	}
 
 	const config = {
@@ -88,7 +86,7 @@ export const updateUser = async (updateData) => {
 			formData,
 			config
 		);
-		store.dispatch(authSuccess(res.data));
+		store.dispatch(authUpdate(res.data));
 	} catch (err) {
 		console.log(err.response.data.message);
 	}
@@ -108,6 +106,7 @@ export const updateUserPassword = async (password) => {
 			body,
 			config
 		);
+		store.dispatch(authSuccess(res.data));
 	} catch (err) {
 		console.log(err.response.data.message);
 	}
@@ -128,6 +127,7 @@ export const updateUserEmail = async (email) => {
 			body,
 			config
 		);
+		store.dispatch(authSuccess(res.data));
 	} catch (err) {
 		console.log(err.response.data.message);
 	}
