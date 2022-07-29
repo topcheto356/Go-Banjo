@@ -1,11 +1,13 @@
 const crypto = require('crypto');
 const { promisify } = require('util');
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 
 const User = require('../models/userModel');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
 const sendEmail = require('../utils/email');
+const userValidation = require('../validation/userValidation');
 
 //create a JWT
 const signToken = (id) => {
@@ -148,6 +150,7 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
 			message: 'Token send',
 		});
 	} catch (err) {
+		//Maybe need to fix
 		user.passwordResetToken = undefined;
 		user.passwordResetExpires = undefined;
 		await user.save({ validateBeforeSave: false });
@@ -179,11 +182,14 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
 	}
 
 	//set new password
+
+	//Maybe need to fix
 	user.password = req.body.password;
 	user.passwordConfirm = req.body.passwordConfirm;
 	user.passwordResetExpires = undefined;
 	user.passwordResetToken = undefined;
 
+	//Maybe need to fix
 	await user.save();
 
 	//log user in
@@ -199,14 +205,35 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
 		return next(new AppError('Your current password is wrong.', 401));
 	}
 
-	//update password
-	user.password = req.body.password;
-	user.passwordConfirm = req.body.passwordConfirm;
+	//validate password
+	if (!userValidation.password(req.body.password)) {
+		return next(new AppError('A password must be minimum 8 characters', 401));
+	}
 
-	await user.save();
+	//checks if the password === passwordConfirm
+	if (
+		!userValidation.passwordConfirm(req.body.password, req.body.passwordConfirm)
+	) {
+		return next(new AppError('Passwords are NOT the same', 401));
+	}
+
+	//hashing password
+	const hashedPassword = await bcrypt.hash(req.body.password, 12);
+
+	//update password
+	const updatedUser = await User.findByIdAndUpdate(
+		req.user._doc._id,
+		{
+			password: hashedPassword,
+			passwordChangedAt: Date.now() - 1000,
+		},
+		{
+			new: true,
+		}
+	);
 
 	//log user in, send JWT
-	createAndSendToken(user, 200, res);
+	createAndSendToken(updatedUser, 200, res);
 });
 
 //change email
@@ -218,10 +245,14 @@ exports.updateEmail = catchAsync(async (req, res, next) => {
 	if (!(await user.correctPassoword(req.body.passwordCurrent, user.password))) {
 		return next(new AppError('Your password is wrong.', 401));
 	}
+
 	//update email
 	const updatedUser = await User.findByIdAndUpdate(
 		req.user._doc._id,
-		{ email: req.body.email },
+		{
+			email: req.body.email,
+			emailChangedAt: Date.now() - 1000,
+		},
 		{
 			new: true,
 			runValidators: true,

@@ -2,6 +2,7 @@ const crypto = require('crypto');
 const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
+const userValidation = require('../validation/userValidation');
 
 const userSchema = new mongoose.Schema({
 	firstName: {
@@ -25,8 +26,14 @@ const userSchema = new mongoose.Schema({
 	password: {
 		type: String,
 		require: [true, 'User must have a password'],
-		minLength: [8, 'A password must be minimum 8 characters'],
 		select: false,
+		validate: {
+			//only work on CREATE and SAVE!!!
+			validator: function (pass) {
+				return userValidation.password(pass);
+			},
+			message: `A password must be minimum 8 characters`,
+		},
 	},
 	passwordConfirm: {
 		type: String,
@@ -34,9 +41,9 @@ const userSchema = new mongoose.Schema({
 		validate: {
 			//only work on CREATE and SAVE!!!
 			validator: function (el) {
-				return el === this.password;
+				return userValidation.passwordConfirm(el, this.password);
 			},
-			message: 'Passwords are NOT the same',
+			message: `Passwords are NOT the same`,
 		},
 	},
 	photo: {
@@ -69,6 +76,7 @@ userSchema.pre('save', async function (next) {
 	//this point to the current doc
 
 	//if password field not changed
+	//Maybe not needed
 	if (!this.isModified('password')) return next();
 
 	//hash is async func
@@ -80,36 +88,11 @@ userSchema.pre('save', async function (next) {
 	next();
 });
 
-//update passwordChangedAt
-userSchema.pre('save', function (next) {
-	//this point to the current doc
-
-	//if password field not changed
-	if (!this.isModified('password') || this.isNew) return next();
-
-	//sometimes JWT is created before the passwordChangedAt is created
-	//saved 1 sec in the past
-	this.passwordChangedAt = Date.now() - 1000;
-	next();
-});
-
-//update emailChangedAt
-userSchema.pre('save', function (next) {
-	//this point to the current doc
-
-	//if password field not changed
-	if (!this.isModified('email') || this.isNew) return next();
-
-	//sometimes JWT is created before the passwordChangedAt is created
-	//saved 1 sec in the past
-	this.emailChangedAt = Date.now() - 1000;
-	next();
-});
-
 //not show deleted users (active:false)
 userSchema.pre(/^find/, function (next) {
 	//this point to the current query
 	this.find({ active: { $ne: false } });
+
 	next();
 });
 
