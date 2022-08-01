@@ -148,6 +148,26 @@ userSchema.methods.createPasswordResetToken = function () {
 	return resetToken;
 };
 
+userSchema.methods.validatePasswordAndReturnHashed = async function (
+	password,
+	passwordConfirm
+) {
+	//checks if the password === passwordConfirm
+	if (!userValidation.passwordConfirm(password, passwordConfirm)) {
+		return next(new AppError('Passwords are NOT the same', 401));
+	}
+
+	//validate password
+	if (!userValidation.password(password)) {
+		return next(new AppError('A password must be minimum 8 characters', 401));
+	}
+
+	//hashing the password
+	const hashedPassword = await bcrypt.hash(password, 12);
+
+	return hashedPassword;
+};
+
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;

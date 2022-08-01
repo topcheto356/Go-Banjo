@@ -1,13 +1,11 @@
 const crypto = require('crypto');
 const { promisify } = require('util');
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcryptjs');
 
 const User = require('../models/userModel');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
 const sendEmail = require('../utils/email');
-const userValidation = require('../validation/userValidation');
 
 //create a JWT
 const signToken = (id) => {
@@ -205,20 +203,11 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
 		return next(new AppError('Your current password is wrong.', 401));
 	}
 
-	//validate password
-	if (!userValidation.password(req.body.password)) {
-		return next(new AppError('A password must be minimum 8 characters', 401));
-	}
-
-	//checks if the password === passwordConfirm
-	if (
-		!userValidation.passwordConfirm(req.body.password, req.body.passwordConfirm)
-	) {
-		return next(new AppError('Passwords are NOT the same', 401));
-	}
-
 	//hashing password
-	const hashedPassword = await bcrypt.hash(req.body.password, 12);
+	const hashedPassword = user.validatePasswordAndReturnHashed(
+		req.body.password,
+		req.body.passwordConfirm
+	);
 
 	//update password
 	const updatedUser = await User.findByIdAndUpdate(
