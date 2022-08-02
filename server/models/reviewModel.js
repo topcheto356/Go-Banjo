@@ -12,6 +12,7 @@ const reviewSchema = new mongoose.Schema(
 			type: Number,
 			min: 1,
 			max: 5,
+			intiger: [true, 'enter a intiger value as a review'],
 		},
 		createdAt: {
 			type: Date,
