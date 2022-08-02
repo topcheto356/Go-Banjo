@@ -9,19 +9,34 @@ const userSchema = new mongoose.Schema({
 		type: String,
 		trim: true,
 		require: [true, 'User must have a name'],
-		maxLength: [30, 'Fist name must be less than 30 characters'],
+		validate: {
+			validator: function (name) {
+				userValidation.userName(name);
+			},
+			message: 'Enter valid First name',
+		},
 	},
 	lastName: {
 		type: String,
 		trim: true,
 		require: [true, 'User must have a name'],
-		maxLength: [30, 'Fist name must be less than 30 characters'],
+		validate: {
+			validator: function (name) {
+				userValidation.userName(name);
+			},
+			message: 'Enter valid Last name',
+		},
 	},
 	email: {
 		type: String,
 		require: [true, 'User must have an email'],
-		unique: true,
-		validator: [validator.isEmail, 'Enter valid email'],
+		unique: [true, 'There is registered user with that email'],
+		validate: {
+			validator: function (email) {
+				userValidation.email(email);
+			},
+			message: 'Enter valid email',
+		},
 	},
 	password: {
 		type: String,

@@ -1,9 +1,14 @@
+import validator from 'validator';
+
 const validateUserData = {
 	userName(event) {
 		const name = event.target.value;
 		let obj = { style: 'valid', data: name };
 
-		if (/[^a-zA-Z]+/g.test(name) || name.length > 30) {
+		if (
+			!validator.isAlpha(name.replaceAll('-', ''), ['en-US']) ||
+			name.length > 30
+		) {
 			obj = { style: 'invalid', data: name };
 		}
 
@@ -14,7 +19,7 @@ const validateUserData = {
 		const email = event.target.value;
 		let obj = { style: 'valid', data: email };
 
-		if (!email) {
+		if (!validator.isEmail(email)) {
 			obj = { style: 'invalid', data: email };
 		}
 
