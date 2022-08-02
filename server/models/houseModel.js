@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const slugify = require('slugify');
-const validator = require('validator');
+
+const houseValidation = require('../validation/houseValidation');
 
 const houseSchema = new mongoose.Schema(
 	{
@@ -9,15 +10,8 @@ const houseSchema = new mongoose.Schema(
 			required: [true, 'A house must have a name'],
 			unique: true,
 			trim: true,
-			maxLength: [
-				40,
-				'A house name must have less or equal than 40 characters',
-			],
 			validate: {
-				//ignore white spaces and '-'
-				validator: function (name) {
-					return validator.isAlpha(name.replaceAll(/[\s-]+/g, ''), ['en-US']);
-				},
+				validator: houseValidation.houseName(el),
 				message: 'A house name is Not valid',
 			},
 		},
@@ -25,6 +19,8 @@ const houseSchema = new mongoose.Schema(
 		maxGroupSize: {
 			type: Number,
 			required: [true, 'A house must have a group size'],
+			min: [1, 'A house must have a group size of 1'],
+			intiger: [true, 'Enter intiger number as a group size'],
 		},
 		ratingsAverage: {
 			type: Number,
