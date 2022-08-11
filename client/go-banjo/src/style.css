@@ -859,6 +859,11 @@ body {
 }
 .house__container {
   margin-bottom: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .active {
@@ -905,6 +910,69 @@ body {
 }
 .right-arrow:active {
   transform: translateY(-50%) scale(1.1);
+}
+
+.add-review {
+  width: 30%;
+}
+.add-review__btn {
+  height: 4rem;
+  font-weight: bold;
+}
+.add-review-container-show {
+  display: block;
+}
+.add-review-container-hide {
+  display: none;
+}
+.add-review-form {
+  font-size: 1.5rem;
+  max-width: 50rem;
+  padding: 2rem;
+  color: #e1d9d1;
+  width: 100%;
+}
+.add-review-form__controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+.add-review-form__control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.add-review-form__input {
+  width: 70%;
+  border: none;
+  padding: 0.75rem;
+  outline: none;
+  border-bottom: 5px solid transparent;
+  transition: all 300ms ease-in-out;
+  background-color: #e1d9d1;
+}
+.add-review-form__input-valid:focus {
+  border-bottom: 5px solid green;
+}
+.add-review-form__input-invalid:focus {
+  border-bottom: 5px solid red;
+}
+.add-review-form__label {
+  font-size: 2rem;
+  text-align: center;
+  width: 50%;
+}
+.add-review-form__message {
+  width: 100%;
+  color: black;
+  text-align: center;
+}
+.add-review-form__btn-submit {
+  padding-top: 1rem;
+  font-size: 2.5rem !important;
 }
 
 .user {

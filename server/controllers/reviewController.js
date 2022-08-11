@@ -3,6 +3,7 @@ const factory = require('./handlerFactory');
 
 exports.setHouseUserIds = (req, res, next) => {
 	// Allow nested routes
+	console.log(req);
 	if (!req.body.house) req.body.house = req.params.houseId;
 	if (!req.body.user) req.body.user = req.user.id;
 	next();

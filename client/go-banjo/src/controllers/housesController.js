@@ -63,3 +63,24 @@ export const getHouse = async (id) => {
 		store.dispatch(loadHouse(res.data));
 	} catch (err) {}
 };
+
+export const createReview = async (data) => {
+	const config = {
+		headers: {
+			'Content-Type': 'application/json',
+		},
+	};
+
+	const body = JSON.stringify(data);
+	try {
+		const res = await axios.post(
+			'http://localhost:8000/api/reviews',
+			body,
+			config
+		);
+
+		console.log(res);
+	} catch (err) {
+		console.log(err.response.data.message);
+	}
+};
