@@ -8,8 +8,8 @@ export const houseSlice = createSlice({
 				location: 'Tilted Towers',
 				imageCover:
 					'https://cdn.mos.cms.futurecdn.net/MNicN6WoB7NEAhrsgwnKgD.jpg',
-				description: '1242345123',
-				summary: 'bolesti',
+				description: 'epic x2',
+				summary: 'epic',
 				price: 231,
 				maxGroupSize: 21,
 				name: 'Kurjavata Kushta',
@@ -18,6 +18,9 @@ export const houseSlice = createSlice({
 					'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/suburban-house-royalty-free-image-1584972559.jpg',
 				],
 				id: '34',
+				ratingsAverage: 3,
+				ratingsQuantity: 3,
+				owner: 'Ivan',
 			},
 		],
 		house: null,
@@ -31,6 +34,7 @@ export const houseSlice = createSlice({
 				loading: false,
 			};
 		},
+
 		loadAllHouses: (state, { type, payload }) => {
 			return {
 				...state,
@@ -44,6 +48,7 @@ export const houseSlice = createSlice({
 				house: payload.data,
 			};
 		},
+
 		removeHouse: (state, { type, payload }) => {
 			return {
 				...state,

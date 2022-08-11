@@ -13,6 +13,7 @@ router.patch('/resetPassword/:token', authController.resetPassword);
 //middleware
 //it will protect all the routes after this point
 router.use(authController.protect);
+
 router.get('/getUser', authController.isLoggedIn);
 
 router.patch('/updateMyPassword', authController.updatePassword);
