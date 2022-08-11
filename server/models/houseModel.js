@@ -58,17 +58,17 @@ const houseSchema = new mongoose.Schema(
 			type: String,
 			default: '/img/houses/default.jpeg',
 		},
-		// images: {
-		// 	type: [String],
-		// 	default: ['default.jpeg', 'default.jpeg', 'default.jpeg'],
-		// 	validate: {
-		// 		//ignore white spaces and '-'
-		// 		validator: function (images) {
-		// 			return images.length >= 3 && images.length <= 5;
-		// 		},
-		// 		message: 'A house images must be between 3 and 5',
-		// 	},
-		// },
+		images: {
+			type: [String],
+			default: ['default.jpeg', 'default.jpeg', 'default.jpeg'],
+			// validate: {
+			// 	//ignore white spaces and '-'
+			// 	validator: function (images) {
+			// 		return images.length >= 3 && images.length <= 5;
+			// 	},
+			// 	message: 'A house images must be between 3 and 5',
+			// },
+		},
 		imagesPath: {
 			type: [String],
 			default: [
