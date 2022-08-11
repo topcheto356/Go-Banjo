@@ -11,7 +11,9 @@ const houseSchema = new mongoose.Schema(
 			unique: true,
 			trim: true,
 			validate: {
-				validator: houseValidation.houseName(el),
+				validator: function (el) {
+					return houseValidation.houseName(el);
+				},
 				message: 'A house name is Not valid',
 			},
 		},
